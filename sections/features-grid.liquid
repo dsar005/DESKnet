@@ -1,0 +1,89 @@
+<section class="section">
+  <div class="container">
+    <div class="section__header animate-on-scroll">
+      <span class="section__eyebrow">Why DESKnet</span>
+      <h2 class="section__title">Built for the Modern Workspace</h2>
+      <p class="section__subtitle">Everything we design starts with one question: does it make your workspace better?</p>
+    </div>
+
+    <div class="features-grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+        {%- when 'feature' -%}
+          <div class="feature-card animate-on-scroll animate-delay-{{ forloop.index }}" {{ block.shopify_attributes }}>
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                {%- case block.settings.icon -%}
+                {%- when 'productivity' -%}<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                {%- when 'design' -%}<path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M12 8v4l2 2"/>
+                {%- when 'quality' -%}<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                {%- when 'shipping' -%}<rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8M5 18a2 2 0 100 4 2 2 0 000-4M17 18a2 2 0 100 4 2 2 0 000-4"/>
+                {%- when 'support' -%}<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                {%- when 'minimal' -%}<path d="M3 3h18v18H3z M9 3v18M15 3v18M3 9h18M3 15h18"/>
+                {%- else -%}<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                {%- endcase -%}
+              </svg>
+            </div>
+            <h3 class="feature-card__title">{{ block.settings.title }}</h3>
+            <p class="feature-card__text">{{ block.settings.text }}</p>
+          </div>
+        {%- endcase -%}
+      {%- else -%}
+        <!-- Default features -->
+        <div class="feature-card animate-on-scroll animate-delay-1">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Boost Productivity</h3>
+          <p class="feature-card__text">Every product is designed to remove friction and keep you in a focused flow state, so you get more done with less effort.</p>
+        </div>
+        <div class="feature-card animate-on-scroll animate-delay-2">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3 class="feature-card__title">Minimal by Design</h3>
+          <p class="feature-card__text">Clean lines, neutral tones, and thoughtful proportions. Our products look as good as they perform — no clutter, no compromise.</p>
+        </div>
+        <div class="feature-card animate-on-scroll animate-delay-3">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3 class="feature-card__title">Premium Build Quality</h3>
+          <p class="feature-card__text">We use only high-grade materials — anodized aluminum, premium silicone, and precision-machined components built to last years.</p>
+        </div>
+        <div class="feature-card animate-on-scroll animate-delay-4">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg>
+          </div>
+          <h3 class="feature-card__title">Ships in 24 Hours</h3>
+          <p class="feature-card__text">Order before 2pm and your setup upgrade ships the same day. Tracked delivery with estimated arrival so you always know when to expect it.</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Features Grid",
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "options": [
+          { "value": "productivity", "label": "Productivity" },
+          { "value": "design", "label": "Design" },
+          { "value": "quality", "label": "Quality" },
+          { "value": "shipping", "label": "Shipping" },
+          { "value": "support", "label": "Support" },
+          { "value": "minimal", "label": "Minimal" }
+        ], "default": "productivity" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Feature Title" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Describe this feature benefit in 1-2 sentences." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Features Grid" }]
+}
+{% endschema %}

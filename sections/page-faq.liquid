@@ -1,0 +1,217 @@
+<!-- FAQ Hero -->
+<div style="background:var(--color-bg-alt);padding:var(--sp-16) 0 var(--sp-8);border-bottom:1px solid var(--color-border)">
+  <div class="container">
+    <span class="section__eyebrow" style="display:block;text-align:left;margin-bottom:var(--sp-3)">Help Center</span>
+    <h1 style="font-family:var(--font-heading);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:var(--sp-4)">Frequently Asked Questions</h1>
+    <p style="font-size:var(--fs-lg);color:var(--color-text-muted);max-width:500px;margin-bottom:var(--sp-6)">Find quick answers to the most common questions about ordering, shipping, returns, and our products.</p>
+    <div class="faq-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.3-4.3" stroke-linecap="round"/></svg>
+      <input type="text" id="FaqSearch" placeholder="Search questions..." aria-label="Search FAQ">
+    </div>
+  </div>
+</div>
+
+<div class="faq-page">
+  <div class="container">
+
+    <!-- Category tabs -->
+    <div class="faq-categories animate-on-scroll">
+      <button class="faq-cat-btn active" data-category="all">All Questions</button>
+      <button class="faq-cat-btn" data-category="shipping">Shipping</button>
+      <button class="faq-cat-btn" data-category="returns">Returns</button>
+      <button class="faq-cat-btn" data-category="orders">Orders</button>
+      <button class="faq-cat-btn" data-category="products">Products</button>
+      <button class="faq-cat-btn" data-category="account">Account</button>
+    </div>
+
+    <div class="accordion animate-on-scroll">
+
+      <!-- Shipping -->
+      <div class="accordion-item open" data-category="shipping">
+        <button class="accordion-trigger">
+          <span class="accordion-question">How long does shipping take?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>We offer several shipping options to fit your needs:</p>
+            <ul style="list-style:disc;padding-left:1.25rem;margin-top:0.5rem;display:flex;flex-direction:column;gap:0.375rem">
+              <li><strong>Standard Shipping (3–7 business days):</strong> Free on orders over $50, otherwise $4.99</li>
+              <li><strong>Express Shipping (1–2 business days):</strong> $12.99</li>
+              <li><strong>Same-Day Delivery:</strong> Available in select cities for orders placed before 12pm local time</li>
+            </ul>
+            <p style="margin-top:0.75rem">All orders are processed within 24 hours of being placed (Monday–Friday). Orders placed on weekends ship the following Monday.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-category="shipping">
+        <button class="accordion-trigger">
+          <span class="accordion-question">Do you offer international shipping?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>Yes! We currently ship to over 40 countries worldwide. International shipping typically takes 7–21 business days depending on your location and customs processing times.</p>
+            <p>International shipping rates start at $14.99 and are calculated at checkout based on your location and order weight. Please note that customers are responsible for any customs duties or import taxes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-category="shipping">
+        <button class="accordion-trigger">
+          <span class="accordion-question">How can I track my order?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>Once your order ships, you'll receive an email with your tracking number and a link to our tracking page. You can also track your order at any time by:</p>
+            <ul style="list-style:disc;padding-left:1.25rem;margin-top:0.5rem;display:flex;flex-direction:column;gap:0.25rem">
+              <li>Logging into your account at <a href="/account">desknet.co/account</a></li>
+              <li>Clicking the tracking link in your shipment confirmation email</li>
+              <li>Contacting our support team with your order number</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Returns -->
+      <div class="accordion-item" data-category="returns">
+        <button class="accordion-trigger">
+          <span class="accordion-question">What is your return policy?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>We offer a <strong>30-day hassle-free return policy</strong>. If you're not completely satisfied with your purchase for any reason, simply return the item in its original condition and packaging within 30 days of delivery for a full refund.</p>
+            <p>To start a return, email us at <a href="mailto:hello@desknet.co">hello@desknet.co</a> with your order number and reason for returning. We'll send you a prepaid return shipping label.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-category="returns">
+        <button class="accordion-trigger">
+          <span class="accordion-question">How long does it take to receive my refund?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>Once we receive and inspect your return (usually 1–3 business days after delivery), we'll process your refund within 3–5 business days. The refund will be credited to your original payment method.</p>
+            <p>If you used a credit card, it may take an additional 2–10 business days for the refund to appear on your statement depending on your bank.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orders -->
+      <div class="accordion-item" data-category="orders">
+        <button class="accordion-trigger">
+          <span class="accordion-question">Can I change or cancel my order?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>We begin processing orders quickly, so changes or cancellations need to be requested within <strong>1 hour of placing your order</strong>. Please contact us immediately at <a href="mailto:hello@desknet.co">hello@desknet.co</a> or by phone.</p>
+            <p>If your order has already shipped, we cannot cancel it, but you can return it through our standard return process once it arrives.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-category="orders">
+        <button class="accordion-trigger">
+          <span class="accordion-question">What payment methods do you accept?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>We accept all major payment methods:</p>
+            <ul style="list-style:disc;padding-left:1.25rem;margin-top:0.5rem;display:flex;flex-direction:column;gap:0.25rem">
+              <li>Credit cards: Visa, Mastercard, American Express, Discover</li>
+              <li>PayPal</li>
+              <li>Apple Pay and Google Pay</li>
+              <li>Shop Pay (buy now, pay later)</li>
+              <li>Klarna and Afterpay (installment payments)</li>
+            </ul>
+            <p style="margin-top:0.75rem">All transactions are processed securely with 256-bit SSL encryption.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products -->
+      <div class="accordion-item" data-category="products">
+        <button class="accordion-trigger">
+          <span class="accordion-question">Do your products come with a warranty?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>Yes! All DESKnet products come with a <strong>12-month manufacturer's warranty</strong> against defects in materials and workmanship. If your product fails due to a manufacturing defect within the warranty period, we'll replace it free of charge.</p>
+            <p>The warranty does not cover normal wear and tear, cosmetic damage, or damage caused by misuse or accidents. To claim warranty service, contact us with proof of purchase and photos of the defect.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-category="products">
+        <button class="accordion-trigger">
+          <span class="accordion-question">Are your products compatible with all laptops / monitors?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>Most of our products are designed to be universally compatible. Our laptop stands support laptops ranging from 10" to 17" screens, and our monitor risers typically support devices up to 27". Specific compatibility information is listed on each product page.</p>
+            <p>If you have questions about whether a specific product is compatible with your setup, don't hesitate to reach out to our team.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account -->
+      <div class="accordion-item" data-category="account">
+        <button class="accordion-trigger">
+          <span class="accordion-question">Do I need an account to order?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>No, you can check out as a guest without creating an account. However, creating an account gives you access to order history, saved shipping addresses, early access to new products, and exclusive member discounts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item" data-category="account">
+        <button class="accordion-trigger">
+          <span class="accordion-question">How do I contact support?</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="accordion-body">
+          <div class="accordion-answer">
+            <p>Our support team is available via:</p>
+            <ul style="list-style:disc;padding-left:1.25rem;margin-top:0.5rem;display:flex;flex-direction:column;gap:0.25rem">
+              <li><strong>Email:</strong> <a href="mailto:hello@desknet.co">hello@desknet.co</a> (response within 24 hours)</li>
+              <li><strong>Contact Form:</strong> <a href="/pages/contact">desknet.co/pages/contact</a></li>
+              <li><strong>Instagram DMs:</strong> @desknet (Mon–Fri)</li>
+            </ul>
+            <p style="margin-top:0.75rem">Support hours are Monday–Friday, 9am–6pm EST. We aim to respond to all inquiries within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Still need help? -->
+    <div class="animate-on-scroll" style="margin-top:var(--sp-16);text-align:center;padding:var(--sp-12);background:var(--color-bg-alt);border-radius:var(--radius-xl);border:1px solid var(--color-border)">
+      <div style="width:64px;height:64px;background:var(--color-accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto var(--sp-5)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28" style="color:var(--color-accent)"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <h3 style="font-family:var(--font-heading);font-size:var(--fs-2xl);font-weight:800;margin-bottom:var(--sp-3)">Still have questions?</h3>
+      <p style="color:var(--color-text-muted);margin-bottom:var(--sp-6)">Our team is happy to help. We respond within 24 hours on weekdays.</p>
+      <a href="/pages/contact" class="btn btn--primary btn--lg">Contact Support</a>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ Page",
+  "settings": []
+}
+{% endschema %}

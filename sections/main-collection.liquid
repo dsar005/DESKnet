@@ -1,0 +1,99 @@
+<div class="collection-page">
+  <div class="container">
+
+    <!-- Header -->
+    <dir class="collection-page__header">
+      <nav class="breadcrumb">
+        <div class="breadcrumb__item"><a href="/" class="breadcrumb__link">Home</a><span class="breadcrumb__sep">/</span></div>
+        <div class="breadcrumb__item"><span class="breadcrumb__current">{{ collection.title | default: 'All Products' }}</span></div>
+      </nav>
+      <h1 class="collection-page__title">{{ collection.title | default: 'All Products' }}</h1>
+      {%- if collection.description != blank -%}
+        <p class="collection-page__desc">{{ collection.description }}</p>
+      {%- else -%}
+        <p class="collection-page__desc">Discover our complete range of minimal desk accessories. Each product is designed for the modern workspace.</p>
+      {%- endif -%}
+    </dir>
+
+    <!-- Toolbar -->
+    <div class="collection-page__toolbar">
+      <div class="collection-page__filters">
+        <button class="filter-btn active" data-group="all">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          All
+        </button>
+        <button class="filter-btn" data-group="cat" data-filter="stands">Stands & Mounts</button>
+        <button class="filter-btn" data-group="cat" data-filter="mats">Desk Mats</button>
+        <button class="filter-btn" data-group="cat" data-filter="lighting">Lighting</button>
+        <button class="filter-btn" data-group="cat" data-filter="organization">Organization</button>
+        <button class="filter-btn" data-group="cat" data-filter="charging">Charging</button>
+      </div>
+      <div class="collection-page__sort">
+        <span class="collection-page__sort-label">Sort by:</span>
+        <select class="sort-select" id="CollectionSort" aria-label="Sort products">
+          <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>Featured</option>
+          <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>Price: Low to High</option>
+          <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>Price: High to Low</option>
+          <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>Best Selling</option>
+          <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>Newest First</option>
+          <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>A–Z</option>
+        </select>
+        <span class="collection-page__count">
+          {{ collection.products_count | default: 0 }} products
+        </span>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    {%- paginate collection.products by 12 -%}
+      {%- if collection.products.size > 0 -%}
+        <div class="collection-grid">
+          {%- for product in collection.products -%}
+            <div class="animate-on-scroll" style="transition-delay:{{ forloop.index0 | modulo: 3 | times: 100 }}ms">
+              {% render 'product-card', product: product %}
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <!-- Pagination -->
+        {%- if paginate.pages > 1 -%}
+          <div style="display:flex;align-items:center;justify-content:center;gap:var(--sp-3);margin-top:var(--sp-16)">
+            {%- if paginate.previous -%}
+              <a href="{{ paginate.previous.url }}" class="btn btn--ghost">← Previous</a>
+            {%- endif -%}
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+                <a href="{{ part.url }}" class="btn btn--ghost btn--sm">{{ part.title }}</a>
+              {%- else -%}
+                <span class="btn btn--primary btn--sm" style="pointer-events:none">{{ part.title }}</span>
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if paginate.next -%}
+              <a href="{{ paginate.next.url }}" class="btn btn--ghost">Next →</a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+      {%- else -%}
+        <!-- Empty state -->
+        <div style="text-align:center;padding:var(--sp-24) 0;color:var(--color-text-muted)">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" width="64" height="64" style="opacity:0.2;margin:0 auto var(--sp-6)">
+            <rect x="8" y="8" width="48" height="48" rx="8"/>
+            <path d="M24 24h16M24 32h16M24 40h10"/>
+          </svg>
+          <h3 style="font-family:var(--font-heading);font-size:var(--fs-2xl);font-weight:700;margin-bottom:var(--sp-3)">No products found</h3>
+          <p style="margin-bottom:var(--sp-8)">Try adjusting your filters or browse all products.</p>
+          <a href="/collections/all" class="btn btn--primary">Browse All Products</a>
+        </div>
+      {%- endif -%}
+    {%- endpaginate -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection",
+  "settings": []
+}
+{% endschema %}

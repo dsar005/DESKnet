@@ -1,0 +1,341 @@
+{%- assign product = section.settings.product | default: product -%}
+
+<div class="product-main">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <div class="breadcrumb__item"><a href="/" class="breadcrumb__link">Home</a><span class="breadcrumb__sep">/</span></div>
+      <div class="breadcrumb__item"><a href="/collections/all" class="breadcrumb__link">Shop</a><span class="breadcrumb__sep">/</span></div>
+      {%- if product.collections.size > 0 -%}
+        <div class="breadcrumb__item"><a href="{{ product.collections.first.url }}" class="breadcrumb__link">{{ product.collections.first.title }}</a><span class="breadcrumb__sep">/</span></div>
+      {%- endif -%}
+      <div class="breadcrumb__item"><span class="breadcrumb__current">{{ product.title | default: 'Product' }}</span></div>
+    </nav>
+
+    <div class="product-main__layout">
+
+      <!-- Gallery -->
+      <div class="product-gallery">
+        <div class="product-gallery__main">
+          {%- if product.featured_image -%}
+            <img id="ProductMainImage"
+              src="{{ product.featured_image | image_url: width: 800 }}"
+              alt="{{ product.featured_image.alt | escape }}"
+              width="800" height="800"
+              class="product-gallery__main-img"
+              loading="eager">
+          {%- else -%}
+            <div class="product-card__img-placeholder" id="ProductMainImage">
+              <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1">
+                <rect x="10" y="25" width="60" height="40" rx="4"/>
+                <path d="M20 25V18a4 4 0 018 0v7M52 25V18a4 4 0 018 0v7"/>
+                <circle cx="40" cy="45" r="6"/>
+              </svg>
+            </div>
+          {%- endif -%}
+
+          {%- if product.compare_at_price > product.price -%}
+            <div class="product-gallery__badge">
+              <span class="badge badge--sale">Save {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}%</span>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <!-- Thumbnails -->
+        {%- if product.images.size > 1 -%}
+          <div class="product-gallery__thumbs">
+            {%- for image in product.images limit: 4 -%}
+              <button class="product-gallery__thumb {% if forloop.first %}active{% endif %}" aria-label="View image {{ forloop.index }}">
+                <img src="{{ image | image_url: width: 200 }}" alt="{{ image.alt | escape }}" width="200" height="200" loading="lazy">
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info">
+        <div class="product-info__vendor">{{ product.vendor | default: 'DESKnet' }}</div>
+        <h1 class="product-info__title">{{ product.title | default: 'Premium Desk Accessory' }}</h1>
+
+        <!-- Rating -->
+        <div class="product-info__rating">
+          <div class="stars">
+            {%- for i in (1..5) -%}<svg viewBox="0 0 24 24" fill="#f59e0b" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>{%- endfor -%}
+          </div>
+          <span style="font-size:var(--fs-sm);font-weight:600">4.9</span>
+          <a href="#reviews" class="product-info__rating-link">({{ product.metafields.reviews.rating_count | default: 247 }} reviews)</a>
+        </div>
+
+        <!-- Pricing -->
+        <div class="product-info__pricing">
+          <span class="product-info__price">
+            {%- if product.price -%}{{ product.price | money }}{%- else -%}$49.99{%- endif -%}
+          </span>
+          {%- if product.compare_at_price > product.price -%}
+            <span class="product-info__compare">{{ product.compare_at_price | money }}</span>
+            <span class="product-info__save-badge">
+              Save {{ product.compare_at_price | minus: product.price | money }}
+            </span>
+          {%- endif -%}
+        </div>
+
+        <!-- Short description -->
+        <div class="product-info__desc">
+          {{ product.description | strip_html | truncate: 200 | default: "Engineered for the modern workspace. Premium materials, minimal design, maximum functionality." }}
+        </div>
+
+        <!-- Variants -->
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <div class="product-info__variants">
+              <div class="product-info__variant-label">
+                {{ option.name }}:
+                <span class="product-info__variant-selected" data-variant-selected="{{ option.name | handleize }}">{{ option.selected_value }}</span>
+              </div>
+              <div class="variant-swatches">
+                {%- for value in option.values -%}
+                  <button class="variant-swatch {% if value == option.selected_value %}active{% endif %}"
+                    data-group="{{ option.name | handleize }}"
+                    data-value="{{ value }}">
+                    {{ value }}
+                  </button>
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        {%- endunless -%}
+
+        <!-- Quantity + Add to Cart -->
+        <form id="ProductForm" action="/cart/add" method="post" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          <div class="product-info__qty">
+            <label style="font-size:var(--fs-sm);font-weight:600;margin-bottom:var(--sp-2);display:block">Quantity</label>
+            <div class="qty-input">
+              <button type="button" class="qty-input__btn" data-qty-dec aria-label="Decrease">−</button>
+              <input type="number" name="quantity" value="1" min="1" class="qty-input__val" style="border:none;width:56px;text-align:center;font-size:var(--fs-base);font-weight:600;background:transparent">
+              <button type="button" class="qty-input__btn" data-qty-inc aria-label="Increase">+</button>
+            </div>
+          </div>
+
+          <div class="product-info__ctas">
+            <button type="submit" class="btn btn--primary btn--lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              Add to Cart
+            </button>
+            <button type="button" class="btn btn--icon btn--ghost" data-wishlist aria-label="Add to wishlist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </button>
+          </div>
+        </form>
+
+        <!-- Trust items -->
+        <div class="product-info__trust">
+          <div class="product-info__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8M5 18a2 2 0 100 4 2 2 0 000-4M17 18a2 2 0 100 4 2 2 0 000-4"/></svg>
+            <span><strong>Free shipping</strong> on orders over $50</span>
+          </div>
+          <div class="product-info__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6M20.49 9A9 9 0 005.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 013.51 15"/></svg>
+            <span><strong>30-day returns</strong> — no questions asked</span>
+          </div>
+          <div class="product-info__trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            <span><strong>Secure checkout</strong> — 256-bit SSL encrypted</span>
+          </div>
+        </div>
+
+        <!-- Share -->
+        <div style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-sm);color:var(--color-text-muted)">
+          <span>Share:</span>
+          <a href="https://twitter.com/intent/tweet?url={{ request.origin }}{{ product.url }}&text={{ product.title | url_encode }}" class="btn btn--ghost btn--sm" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.origin }}{{ product.url }}" class="btn btn--ghost btn--sm" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Product Tabs -->
+    <div class="product-tabs">
+      <div class="product-tabs__nav">
+        <button class="product-tabs__tab active" data-tab="description">Description</button>
+        <button class="product-tabs__tab" data-tab="specs">Specifications</button>
+        <button class="product-tabs__tab" data-tab="shipping">Shipping</button>
+        <button class="product-tabs__tab" data-tab="reviews">Reviews</button>
+      </div>
+
+      <!-- Description Panel -->
+      <div class="product-tabs__panel active" data-panel="description">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-12);align-items:start">
+          <div>
+            <div style="font-size:var(--fs-base);color:var(--color-text-muted);line-height:1.8">
+              {{ product.description | default: "<p>This premium desk accessory is thoughtfully engineered for the modern workspace. Crafted from high-grade materials with meticulous attention to detail, it combines clean minimal aesthetics with exceptional functionality.</p><p>Every product in the DESKnet lineup is designed to integrate seamlessly into any desk setup, whether you prefer a stark minimal look or a more personalized aesthetic.</p>" }}
+            </div>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-heading);font-size:var(--fs-xl);font-weight:700;margin-bottom:var(--sp-5)">Key Benefits</h3>
+            <ul style="display:flex;flex-direction:column;gap:var(--sp-4)">
+              {%- assign benefits = "Improves desk ergonomics and posture|Premium build quality built to last|Clean minimal aesthetic for any desk|Backed by 30-day satisfaction guarantee|Designed and tested by workspace enthusiasts" | split: "|" -%}
+              {%- for benefit in benefits -%}
+                <li style="display:flex;align-items:flex-start;gap:var(--sp-3);font-size:var(--fs-sm);color:var(--color-text-muted)">
+                  <div style="width:20px;height:20px;background:var(--color-accent-light);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="10" height="10" style="color:var(--color-accent)"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                  {{ benefit }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specs Panel -->
+      <div class="product-tabs__panel" data-panel="specs">
+        <div class="product-specs">
+          {%- assign default_specs = "Material|Premium aluminum alloy|Dimensions|Desktop optimized|Weight|Lightweight design|Color Options|Black, Silver, White|Compatibility|Universal fit|Warranty|1-year manufacturer warranty|In the Box|1x Product + hardware|Certifications|CE, RoHS certified" | split: "|" -%}
+          {%- for i in (0..6) -%}
+            {%- assign j = i | times: 2 -%}
+            {%- assign k = j | plus: 1 -%}
+            <div class="product-spec">
+              <div class="product-spec__label">{{ default_specs[j] }}</div>
+              <div class="product-spec__value">{{ default_specs[k] }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <!-- Shipping Panel -->
+      <div class="product-tabs__panel" data-panel="shipping">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8)">
+          <div>
+            <h3 style="font-family:var(--font-heading);font-size:var(--fs-xl);font-weight:700;margin-bottom:var(--sp-5)">Shipping Info</h3>
+            <ul style="display:flex;flex-direction:column;gap:var(--sp-3)">
+              {%- assign shipping_items = "Free standard shipping on orders over $50|Standard (3–7 days): $4.99|Express (1–2 days): $12.99|Same-day available in select cities|Ships within 24 hours of ordering|Full tracking included" | split: "|" -%}
+              {%- for item in shipping_items -%}
+                <li style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-sm);color:var(--color-text-muted)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="color:var(--color-accent);flex-shrink:0"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  {{ item }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+          <div>
+            <h3 style="font-family:var(--font-heading);font-size:var(--fs-xl);font-weight:700;margin-bottom:var(--sp-5)">Returns</h3>
+            <ul style="display:flex;flex-direction:column;gap:var(--sp-3)">
+              {%- assign return_items = "30-day hassle-free returns|Free return shipping|Full refund or exchange|Items must be in original condition|Start return at hello@desknet.co|Refunds processed in 3–5 days" | split: "|" -%}
+              {%- for item in return_items -%}
+                <li style="display:flex;align-items:center;gap:var(--sp-3);font-size:var(--fs-sm);color:var(--color-text-muted)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="color:var(--color-success);flex-shrink:0"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  {{ item }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews Panel -->
+      <div class="product-tabs__panel" id="reviews" data-panel="reviews">
+        <!-- Summary -->
+        <div class="review-summary" style="max-width:700px">
+          <div class="review-summary__score">
+            <div class="review-summary__number">4.9</div>
+            <div class="stars review-summary__stars" style="justify-content:center;margin:6px 0">
+              {%- for i in (1..5) -%}<svg viewBox="0 0 24 24" fill="#f59e0b" width="16" height="16"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>{%- endfor -%}
+            </div>
+            <div class="review-summary__count">247 reviews</div>
+          </div>
+          <div class="review-bars">
+            {%- assign bar_data = "5,91|4,6|3,2|2,1|1,0" | split: "|" -%}
+            {%- for bar in bar_data -%}
+              {%- assign parts = bar | split: "|" -%}
+              {%- assign p = bar | split: "," -%}
+              <div class="review-bar">
+                <span class="review-bar__label">{{ p[0] }}★</span>
+                <div class="review-bar__track"><div class="review-bar__fill" style="width:{{ p[1] }}%"></div></div>
+                <span class="review-bar__count">{{ p[1] }}%</span>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <!-- Review list -->
+        <div class="review-list">
+          {%- assign reviews = "Alex K.|Software Engineer|Great build quality and looks amazing on my desk!|The laptop stand is sturdy, easy to adjust, and the aluminum finish looks premium. Exactly what I needed for my home office setup. Would 100% buy again.,Sarah M.|UX Designer|Exceeded my expectations in every way|I was a bit hesitant to buy online without seeing it first, but the photos don't do it justice. Build quality is exceptional and it integrates perfectly with my minimal setup.,James P.|Content Creator|Finally a desk accessory that looks AND works great|Been using this for 3 months daily and it's held up perfectly. The design is clean and minimal which is exactly what my desk needed. Fast shipping too!,Emma T.|Student|Best upgrade I made for studying|My productivity has genuinely improved since I got this. My screen is at eye level, my posture is better, and I just feel more motivated to work at my desk." | split: "," -%}
+          {%- for review in reviews -%}
+            {%- assign parts = review | split: "|" -%}
+            <div class="review-item">
+              <div class="review-item__header">
+                <div class="review-item__author">
+                  <div class="review-item__avatar">{{ parts[0] | slice: 0 | upcase }}</div>
+                  <div>
+                    <div class="review-item__name">{{ parts[0] }}</div>
+                    <div class="review-item__date">{{ parts[1] }} · Verified Purchase</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="stars" style="margin-bottom:4px">{%- for i in (1..5) -%}<svg viewBox="0 0 24 24" fill="#f59e0b" width="13" height="13"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>{%- endfor -%}</div>
+                  <div class="review-item__verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Verified</div>
+                </div>
+              </div>
+              <div class="review-item__title">{{ parts[2] }}</div>
+              <div class="review-item__text">{{ parts[3] }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div style="margin-top:var(--sp-8);padding-top:var(--sp-6);border-top:1px solid var(--color-border)">
+          <a href="#" class="btn btn--ghost">Load More Reviews</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Sticky ATC Bar -->
+<div class="sticky-atc" id="StickyATC">
+  <div class="sticky-atc__inner container">
+    <div class="sticky-atc__product">
+      {%- if product.featured_image -%}
+        <img class="sticky-atc__img" src="{{ product.featured_image | image_url: width: 120 }}" alt="{{ product.title }}" width="52" height="52">
+      {%- endif -%}
+      <div>
+        <div class="sticky-atc__title">{{ product.title | default: 'Premium Desk Accessory' }}</div>
+        <div class="sticky-atc__price">{%- if product.price -%}{{ product.price | money }}{%- else -%}$49.99{%- endif -%}</div>
+      </div>
+    </div>
+    <button class="btn btn--primary sticky-atc__btn" onclick="document.getElementById('ProductForm').querySelector('[type=submit]').click()">
+      Add to Cart
+    </button>
+  </div>
+</div>
+
+<!-- Related Products -->
+<div class="related-products animate-on-scroll">
+  <div class="container">
+    <div class="section__header" style="margin-bottom:var(--sp-10)">
+      <span class="section__eyebrow">You May Also Like</span>
+      <h2 class="section__title" style="font-size:clamp(1.75rem,3vw,2.5rem)">Complete Your Setup</h2>
+    </div>
+    <div class="related-products__grid">
+      {%- assign related = product.collections.first.products -%}
+      {%- for related_product in related limit: 4 -%}
+        {%- unless related_product.id == product.id -%}
+          {% render 'product-card', product: related_product %}
+        {%- endunless -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}{% render 'product-card-placeholder', index: forloop.index %}{%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": []
+}
+{% endschema %}

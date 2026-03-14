@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your DESKnet shopping cart — review your items, apply coupon codes, and proceed to checkout.">
+  <title>Your Cart — DESKnet</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+  <div id="ann-bar">
+    <i data-feather="truck" aria-hidden="true"></i> Free shipping on orders over $75 — Use code <strong>DESK10</strong> for 10% off!
+    <a href="shop.html">Shop Now →</a>
+    <span class="ann-close">×</span>
+  </div>
+
+  <header class="site-header">
+    <div class="hdr-inner">
+      <a href="index.html" class="logo"><div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span></a>
+      <nav class="main-nav desktop-nav">
+        <a href="index.html">Home</a><a href="shop.html">Shop</a>
+        <a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="hdr-actions">
+        <button class="hdr-btn" data-search-open><i data-feather="search"></i></button>
+        <a href="#" class="hdr-btn"><i data-feather="user"></i></a>
+        <button class="hdr-btn" data-cart-open><i data-feather="shopping-bag"></i><span class="cart-dot">0</span></button>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-overlay">
+    <div class="search-field"><i data-feather="search"></i><input type="search" placeholder="Search products…"></div>
+    <span class="search-x">×</span>
+  </div>
+  <div class="mobile-menu">
+    <div class="mm-hdr"><a href="index.html" class="logo"><div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span></a><span class="mm-close">×</span></div>
+    <nav class="mm-nav">
+      <a href="index.html">Home</a><a href="shop.html">Shop All</a><a href="about.html">About</a>
+      <a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="mm-foot"><a href="shop.html" class="btn btn-primary w-full">Shop Now</a></div>
+  </div>
+  <!-- Note: On cart page, we don't need the cart drawer -->
+
+  <!-- Cart Page -->
+  <div class="cart-page">
+    <div class="container">
+      <h1 style="margin-bottom:2.5rem">Your Cart</h1>
+
+      <div class="cart-page-grid">
+        <!-- Cart Items -->
+        <div>
+          <div class="cart-tbl-head">
+            <span>Product</span>
+            <span class="col-price">Price</span>
+            <span>Quantity</span>
+            <span>Total</span>
+          </div>
+
+          <!-- Sample Item 1 -->
+          <div class="cart-row">
+            <div class="cart-row-product">
+              <div class="cr-img">
+                <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=72&q=80" alt="Adjustable Laptop Stand" onerror="this.src='https://placehold.co/72x72/f2f2f7/5254f7?text=Stand'">
+              </div>
+              <div>
+                <div class="cr-name">Adjustable Laptop Stand</div>
+                <div class="cr-variant">Color: Space Gray</div>
+                <button class="cr-remove">Remove</button>
+              </div>
+            </div>
+            <div class="cr-price col-price">$79.99</div>
+            <div>
+              <div class="cr-qty-ctrl">
+                <button class="cr-qty-btn" data-action="minus">−</button>
+                <input type="number" class="cr-qty-input" value="1" min="1" max="99" readonly>
+                <button class="cr-qty-btn" data-action="plus">+</button>
+              </div>
+            </div>
+            <div class="cr-total">$79.99</div>
+          </div>
+
+          <!-- Sample Item 2 -->
+          <div class="cart-row">
+            <div class="cart-row-product">
+              <div class="cr-img">
+                <img src="https://images.unsplash.com/photo-1587302912306-cf1ed9c33146?auto=format&fit=crop&w=72&q=80" alt="Minimal Desk Mat" onerror="this.src='https://placehold.co/72x72/f2f2f7/5254f7?text=Mat'">
+              </div>
+              <div>
+                <div class="cr-name">Minimal Desk Mat</div>
+                <div class="cr-variant">Size: 900×400mm</div>
+                <button class="cr-remove">Remove</button>
+              </div>
+            </div>
+            <div class="cr-price col-price">$49.99</div>
+            <div>
+              <div class="cr-qty-ctrl">
+                <button class="cr-qty-btn" data-action="minus">−</button>
+                <input type="number" class="cr-qty-input" value="1" min="1" max="99" readonly>
+                <button class="cr-qty-btn" data-action="plus">+</button>
+              </div>
+            </div>
+            <div class="cr-total">$49.99</div>
+          </div>
+
+          <!-- Continue Shopping -->
+          <div style="margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+            <a href="shop.html" class="btn btn-secondary btn-sm">← Continue Shopping</a>
+            <button class="btn btn-secondary btn-sm">Update Cart</button>
+          </div>
+
+          <!-- You May Also Like -->
+          <div style="margin-top:3rem">
+            <h3 style="margin-bottom:1.5rem">You May Also Like</h3>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem">
+              <div class="product-card">
+                <div class="pc-img">
+                  <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=300&q=80" alt="Cable Organizer" onerror="this.src='https://placehold.co/300x300/f2f2f7/5254f7?text=Cable'">
+                  <div class="quick-add" data-add-to-cart data-name="Cable Management Organizer" data-price="34.99" data-image="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=76&q=80">+ Add to Cart</div>
+                </div>
+                <div class="pc-info">
+                  <div class="pc-cat">Cable Management</div>
+                  <div class="pc-name">Cable Management Organizer</div>
+                  <div class="pc-price"><span class="price-cur">$34.99</span></div>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="pc-img">
+                  <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=300&q=80" alt="Light Bar" onerror="this.src='https://placehold.co/300x300/f2f2f7/5254f7?text=Light'">
+                  <div class="quick-add" data-add-to-cart data-name="RGB Desk Light Bar" data-price="89.99" data-image="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=76&q=80">+ Add to Cart</div>
+                </div>
+                <div class="pc-info">
+                  <div class="pc-cat">Lighting</div>
+                  <div class="pc-name">RGB Desk Light Bar</div>
+                  <div class="pc-price"><span class="price-cur">$89.99</span><span class="price-was">$119.99</span></div>
+                </div>
+              </div>
+              <div class="product-card">
+                <div class="pc-img">
+                  <img src="https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?auto=format&fit=crop&w=300&q=80" alt="Wireless Charger" onerror="this.src='https://placehold.co/300x300/f2f2f7/5254f7?text=Charger'">
+                  <div class="quick-add" data-add-to-cart data-name="Wireless Charging Pad" data-price="59.99" data-image="https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?w=76&q=80">+ Add to Cart</div>
+                </div>
+                <div class="pc-info">
+                  <div class="pc-cat">Charging</div>
+                  <div class="pc-name">Wireless Charging Pad</div>
+                  <div class="pc-price"><span class="price-cur">$59.99</span><span class="price-was">$79.99</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="cart-summary-box">
+          <h3>Order Summary</h3>
+
+          <div class="sum-row"><span>Subtotal (2 items)</span><span>$129.98</span></div>
+          <div class="sum-row"><span>Shipping</span><span style="color:var(--success);font-weight:600">FREE</span></div>
+          <div class="sum-row"><span>Estimated Tax</span><span>$10.40</span></div>
+          <div class="sum-row total"><span>Total</span><span>$140.38</span></div>
+
+          <!-- Coupon Code -->
+          <div style="margin-top:1.5rem;margin-bottom:1.25rem">
+            <label style="display:block;font-size:.825rem;font-weight:600;margin-bottom:.5rem;color:var(--text)">Discount Code</label>
+            <div class="coupon-wrap">
+              <input type="text" class="coupon-input" placeholder="Enter code (try DESK10)">
+              <button class="btn btn-dark btn-sm" data-apply-coupon>Apply</button>
+            </div>
+          </div>
+
+          <!-- Checkout Buttons -->
+          <a href="#checkout" class="btn btn-primary w-full btn-lg" style="margin-bottom:.75rem">Proceed to Checkout →</a>
+          <a href="#paypal" class="btn w-full" style="background:#FFB300;color:#fff;justify-content:center;border-radius:var(--r-full);padding:13px">
+            <span style="font-weight:900;font-size:1.1rem">Pay</span><span style="font-weight:400;font-size:1.1rem">Pal</span>
+          </a>
+
+          <!-- Checkout Trust -->
+          <div class="checkout-trust">
+            <i data-feather="lock" aria-hidden="true" style="width:12px;height:12px;vertical-align:-1px;margin-right:3px;stroke-width:2.5"></i> Secure SSL encrypted checkout
+          </div>
+
+          <!-- Payment Icons -->
+          <div style="display:flex;gap:.375rem;flex-wrap:wrap;justify-content:center;margin-top:.875rem">
+            <span class="pay-icon" style="background:var(--surface-2);color:var(--text);border-color:var(--border)">VISA</span>
+            <span class="pay-icon" style="background:var(--surface-2);color:var(--text);border-color:var(--border)">MC</span>
+            <span class="pay-icon" style="background:var(--surface-2);color:var(--text);border-color:var(--border)">AMEX</span>
+            <span class="pay-icon" style="background:var(--surface-2);color:var(--text);border-color:var(--border)">PAYPAL</span>
+            <span class="pay-icon" style="background:var(--surface-2);color:var(--text);border-color:var(--border)">APPLE</span>
+          </div>
+
+          <!-- Benefits -->
+          <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:.625rem">
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.825rem;color:var(--muted)"><span style="color:var(--success)">✓</span> Free shipping on this order</div>
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.825rem;color:var(--muted)"><span style="color:var(--success)">✓</span> 30-day no-hassle returns</div>
+            <div style="display:flex;align-items:center;gap:.5rem;font-size:.825rem;color:var(--muted)"><span style="color:var(--success)">✓</span> 1-year warranty on all items</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span></a>
+        <p>Premium minimal desk accessories designed to transform your workspace.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">𝕀</a><a href="#" class="social-btn">𝕏</a><a href="#" class="social-btn">▶</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><ul>
+        <li><a href="shop.html">All Products</a></li><li><a href="shop.html">Laptop Stands</a></li>
+        <li><a href="shop.html">Desk Mats</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Help</h4><ul>
+        <li><a href="faq.html">FAQ</a></li><li><a href="shipping.html">Shipping & Returns</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul>
+        <li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms</a></li>
+        <li><a href="refund.html">Refunds</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 DESKnet. All rights reserved.</span>
+      <div class="footer-pay"><span class="pay-icon">VISA</span><span class="pay-icon">MC</span><span class="pay-icon">AMEX</span><span class="pay-icon">PAYPAL</span></div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>

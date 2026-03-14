@@ -1,0 +1,66 @@
+<div class="announcement-bar">
+  <div class="announcement-bar__track">
+    <span class="announcement-bar__item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <strong>Free shipping</strong>&nbsp;on orders over ${{ section.settings.free_shipping_threshold }}
+    </span>
+    <span class="announcement-bar__dot"></span>
+    <span class="announcement-bar__item">
+      🎉 <strong>{{ section.settings.promo_text }}</strong>
+    </span>
+    <span class="announcement-bar__dot"></span>
+    <span class="announcement-bar__item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      {{ section.settings.trust_text }}
+    </span>
+    <span class="announcement-bar__dot"></span>
+    <span class="announcement-bar__item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2z"/></svg>
+      <strong>{{ section.settings.returns_text }}</strong>
+    </span>
+    <span class="announcement-bar__dot"></span>
+    <span class="announcement-bar__item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8M5 18a2 2 0 100 4 2 2 0 000-4M17 18a2 2 0 100 4 2 2 0 000-4"/></svg>
+      Fast shipping · <strong>{{ section.settings.delivery_text }}</strong>
+    </span>
+    <!-- Duplicate for seamless loop -->
+    <span class="announcement-bar__item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <strong>Free shipping</strong>&nbsp;on orders over ${{ section.settings.free_shipping_threshold }}
+    </span>
+    <span class="announcement-bar__dot"></span>
+    <span class="announcement-bar__item">
+      🎉 <strong>{{ section.settings.promo_text }}</strong>
+    </span>
+    <span class="announcement-bar__dot"></span>
+    <span class="announcement-bar__item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      {{ section.settings.trust_text }}
+    </span>
+  </div>
+</div>
+
+<style>
+.announcement-bar__track {
+  animation: marquee 28s linear infinite;
+  display: flex;
+  gap: var(--sp-12);
+  white-space: nowrap;
+}
+.announcement-bar:hover .announcement-bar__track {
+  animation-play-state: paused;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    { "type": "text", "id": "free_shipping_threshold", "label": "Free shipping threshold", "default": "50" },
+    { "type": "text", "id": "promo_text", "label": "Promo text", "default": "New arrivals just dropped — Shop the collection" },
+    { "type": "text", "id": "trust_text", "label": "Trust text", "default": "30-day hassle-free returns" },
+    { "type": "text", "id": "returns_text", "label": "Returns text", "default": "Easy 30-day returns" },
+    { "type": "text", "id": "delivery_text", "label": "Delivery text", "default": "2–5 business days" }
+  ]
+}
+{% endschema %}

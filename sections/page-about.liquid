@@ -1,0 +1,126 @@
+<!-- About Hero -->
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero__grid">
+      <div>
+        <span class="about-hero__eyebrow">Our Story</span>
+        <h1 class="about-hero__title">We Believe Your Workspace Should Work as Hard as You Do</h1>
+        <p class="about-hero__text">DESKnet was founded by a small team of developers and designers who were tired of choosing between aesthetics and functionality. We set out to create workspace accessories that deliver both — without compromise.</p>
+      </div>
+      <div class="about-hero__visual">
+        {%- if section.settings.hero_image != blank -%}
+          <img src="{{ section.settings.hero_image | image_url: width: 800 }}" alt="DESKnet team" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-xl)">
+        {%- else -%}
+          <div style="position:relative;z-index:1;text-align:center;padding:var(--sp-10)">
+            <div style="font-family:var(--font-heading);font-size:clamp(4rem,8vw,8rem);font-weight:800;background:linear-gradient(135deg,#fff,rgba(255,255,255,0.3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.04em;line-height:1">DN</div>
+            <div style="font-family:var(--font-mono);font-size:var(--fs-xs);color:rgba(255,255,255,0.4);letter-spacing:0.2em;text-transform:uppercase;margin-top:var(--sp-2)">Founded 2021</div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  <!-- Background grid -->
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none"></div>
+</section>
+
+<!-- Stats -->
+<div style="background:#fff;border-bottom:1px solid var(--color-border)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0">
+      {%- assign stats = "15,000+|Happy Customers|4.9/5|Average Rating|30+|Products|2021|Founded" | split: "|" -%}
+      {%- for i in (0..3) -%}
+        {%- assign j = i | times: 2 -%}
+        {%- assign k = j | plus: 1 -%}
+        <div style="padding:var(--sp-10) var(--sp-8);text-align:center;border-right:1px solid var(--color-border){% if forloop.last %};border-right:none{% endif %}">
+          <div style="font-family:var(--font-heading);font-size:var(--fs-4xl);font-weight:800;color:var(--color-text);letter-spacing:-0.03em;margin-bottom:var(--sp-2)">{{ stats[j] }}</div>
+          <div style="font-size:var(--fs-sm);color:var(--color-text-muted)">{{ stats[k] }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<!-- Mission -->
+<section class="about-mission">
+  <div class="container">
+    <div class="about-mission__grid">
+      <div class="about-mission__content animate-on-scroll">
+        <span class="section__eyebrow">Our Mission</span>
+        <h2 class="section__title" style="text-align:left;font-size:clamp(2rem,4vw,3rem)">Making Excellence Accessible</h2>
+        <p class="section__subtitle" style="text-align:left">We believe a well-designed workspace isn't a luxury — it's a productivity tool. Our mission is to give everyone access to premium desk accessories that make work feel better.</p>
+        <div style="display:flex;flex-direction:column;gap:var(--sp-5);margin-top:var(--sp-8)">
+          {%- assign pillars = "Quality First|Every product goes through rigorous testing before it reaches your desk. We'd rather offer fewer products done right than many done cheaply.|Minimal by Design|We strip away everything unnecessary to leave only what matters. Clean lines, thoughtful proportions, and a palette that works with any desk aesthetic.|Built for Creators|Whether you're coding, designing, streaming, or studying — we build for people who spend serious time at their desks and demand the best." | split: "|" -%}
+          {%- for i in (0..2) -%}
+            {%- assign j = i | times: 2 -%}
+            {%- assign k = j | plus: 1 -%}
+            <div class="animate-on-scroll animate-delay-{{ forloop.index }}">
+              <h3 style="font-family:var(--font-heading);font-weight:700;font-size:var(--fs-lg);margin-bottom:var(--sp-2)">{{ pillars[j] }}</h3>
+              <p style="font-size:var(--fs-sm);color:var(--color-text-muted);line-height:1.7">{{ pillars[k] }}</p>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      <div class="animate-on-scroll" style="aspect-ratio:1;background:var(--color-bg-alt);border-radius:var(--radius-xl);display:flex;align-items:center;justify-content:center;overflow:hidden">
+        {%- if section.settings.mission_image != blank -%}
+          <img src="{{ section.settings.mission_image | image_url: width: 700 }}" alt="DESKnet mission" style="width:100%;height:100%;object-fit:cover">
+        {%- else -%}
+          <div style="padding:var(--sp-12);text-align:center">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" width="220" style="opacity:0.3">
+              <!-- Simple desk illustration -->
+              <rect x="30" y="80" width="140" height="70" rx="6" stroke="currentColor" stroke-width="3"/>
+              <rect x="50" y="30" width="100" height="65" rx="4" stroke="currentColor" stroke-width="3"/>
+              <path d="M90 95 L90 110 L110 110 L110 95" stroke="currentColor" stroke-width="2" fill="none"/>
+              <line x1="75" y1="110" x2="125" y2="110" stroke="currentColor" stroke-width="2"/>
+              <rect x="40" y="90" width="70" height="30" rx="4" stroke="currentColor" stroke-width="2"/>
+              <rect x="120" y="92" width="25" height="25" rx="12" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="about-values">
+  <div class="container">
+    <div class="section__header animate-on-scroll">
+      <span class="section__eyebrow">What We Stand For</span>
+      <h2 class="section__title">Our Core Values</h2>
+    </div>
+    <div class="values-grid">
+      {%- assign values = "01|Craftsmanship|We obsess over details that most people never notice — because we believe those details make the difference between good and great.|02|Sustainability|We're committing to sustainable materials and packaging. A better workspace shouldn't come at the cost of a worse world.|03|Community|Our products are designed with the community. We listen to feedback, share setups, and build together with workspace enthusiasts worldwide." | split: "|" -%}
+      {%- for i in (0..2) -%}
+        {%- assign j = i | times: 3 -%}
+        <div class="value-card animate-on-scroll animate-delay-{{ forloop.index }}">
+          <span class="value-card__number">{{ values[j] }}</span>
+          <h3 class="value-card__title">{{ values[j | plus: 1] }}</h3>
+          <p class="value-card__text">{{ values[j | plus: 2] }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section style="padding:var(--sp-24) 0;text-align:center">
+  <div class="container container--xs">
+    <span class="section__eyebrow animate-on-scroll">Join the Community</span>
+    <h2 class="section__title animate-on-scroll">Ready to Upgrade Your Workspace?</h2>
+    <p class="section__subtitle animate-on-scroll">Browse our full catalog and find the accessories that will transform your desk into a place you love to work.</p>
+    <div class="animate-on-scroll" style="margin-top:var(--sp-8);display:flex;gap:var(--sp-4);justify-content:center;flex-wrap:wrap">
+      <a href="/collections/all" class="btn btn--primary btn--lg">Shop All Products</a>
+      <a href="/pages/contact" class="btn btn--ghost btn--lg">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Page",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "image_picker", "id": "mission_image", "label": "Mission image" }
+  ]
+}
+{% endschema %}

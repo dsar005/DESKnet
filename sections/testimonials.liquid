@@ -1,0 +1,116 @@
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header animate-on-scroll">
+      <span class="section__eyebrow">Customer Reviews</span>
+      <h2 class="section__title">Loved by 15,000+ Desk Builders</h2>
+      <p class="section__subtitle">Real reviews from real customers who upgraded their workspace with DESKnet.</p>
+    </div>
+
+    <!-- Rating summary bar -->
+    <div class="animate-on-scroll" style="max-width:700px;margin:0 auto var(--sp-12);background:#fff;border-radius:var(--radius-xl);padding:var(--sp-8);border:1px solid var(--color-border);display:flex;align-items:center;gap:var(--sp-10);">
+      <div style="text-align:center;min-width:120px">
+        <div style="font-family:var(--font-heading);font-size:72px;font-weight:800;line-height:1;letter-spacing:-0.04em;color:var(--color-text)">4.9</div>
+        <div class="stars" style="justify-content:center;margin:6px 0">
+          {%- for i in (1..5) -%}<svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>{%- endfor -%}
+        </div>
+        <div style="font-size:0.75rem;color:var(--color-text-muted)">Based on 2,847 reviews</div>
+      </div>
+      <div style="flex:1">
+        {%- assign bars = "5,92|4,5|3,2|2,1|1,0" | split: "|" -%}
+        {%- for bar in bars -%}
+          {%- assign parts = bar | split: "," -%}
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;font-size:0.8rem;">
+            <span style="min-width:12px;text-align:right;color:var(--color-text-muted)">{{ parts[0] }}★</span>
+            <div style="flex:1;height:6px;background:var(--color-border);border-radius:99px;overflow:hidden">
+              <div style="height:100%;width:{{ parts[1] }}%;background:var(--color-gold);border-radius:99px"></div>
+            </div>
+            <span style="min-width:28px;color:var(--color-text-muted)">{{ parts[1] }}%</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="testimonials__grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+        {%- when 'testimonial' -%}
+          <div class="testimonial-card animate-on-scroll animate-delay-{{ forloop.index }}" {{ block.shopify_attributes }}>
+            <svg class="testimonial-card__quote" viewBox="0 0 32 32" fill="currentColor"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/></svg>
+            <div class="testimonial-card__stars stars">
+              {%- for i in (1..5) -%}<svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>{%- endfor -%}
+            </div>
+            <p class="testimonial-card__text">"{{ block.settings.text }}"</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">{{ block.settings.name | slice: 0 | upcase }}{{ block.settings.name | split: ' ' | last | slice: 0 | upcase }}</div>
+              <div>
+                <div class="testimonial-card__name">{{ block.settings.name }}</div>
+                <div class="testimonial-card__role">{{ block.settings.role }}</div>
+              </div>
+              <div class="testimonial-card__verified">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Verified
+              </div>
+            </div>
+          </div>
+        {%- endcase -%}
+      {%- else -%}
+        <!-- Default testimonials -->
+        <div class="testimonial-card animate-on-scroll animate-delay-1">
+          <svg class="testimonial-card__quote" viewBox="0 0 32 32" fill="currentColor" style="color:var(--color-accent-light)"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/></svg>
+          <div class="testimonial-card__stars stars">{%- for i in (1..5) -%}<svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>{%- endfor -%}</div>
+          <p class="testimonial-card__text">"The laptop stand completely changed how I work. My posture is better, my monitor is at eye level, and my desk finally looks clean. Best $49 I've spent on my home office."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">AK</div>
+            <div><div class="testimonial-card__name">Alex Kim</div><div class="testimonial-card__role">Software Engineer, SF</div></div>
+            <div class="testimonial-card__verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Verified</div>
+          </div>
+        </div>
+        <div class="testimonial-card animate-on-scroll animate-delay-2">
+          <svg class="testimonial-card__quote" viewBox="0 0 32 32" fill="currentColor" style="color:var(--color-accent-light)"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/></svg>
+          <div class="testimonial-card__stars stars">{%- for i in (1..5) -%}<svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>{%- endfor -%}</div>
+          <p class="testimonial-card__text">"The desk mat is gorgeous — super smooth for my mouse, protects my desk, and the stitched edges haven't frayed after 8 months of daily use. Highly recommend to anyone building a minimal setup."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">SM</div>
+            <div><div class="testimonial-card__name">Sarah Martinez</div><div class="testimonial-card__role">UX Designer, Remote</div></div>
+            <div class="testimonial-card__verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Verified</div>
+          </div>
+        </div>
+        <div class="testimonial-card animate-on-scroll animate-delay-3">
+          <svg class="testimonial-card__quote" viewBox="0 0 32 32" fill="currentColor" style="color:var(--color-accent-light)"><path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/></svg>
+          <div class="testimonial-card__stars stars">{%- for i in (1..5) -%}<svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>{%- endfor -%}</div>
+          <p class="testimonial-card__text">"I was skeptical about spending on a wireless charger but the DESKnet one is genuinely beautiful. Charges my phone and AirPods fast, looks premium, and the LED is subtle. It's now a permanent part of my desk."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">JP</div>
+            <div><div class="testimonial-card__name">James Park</div><div class="testimonial-card__role">Content Creator, LA</div></div>
+            <div class="testimonial-card__verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Verified</div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="text-center animate-on-scroll" style="margin-top:var(--sp-10)">
+      <a href="/collections/all" class="btn btn--ghost">
+        Read More Reviews
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Review text" },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Jane Doe" },
+        { "type": "text", "id": "role", "label": "Customer role / location", "default": "Verified Customer" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Testimonials" }]
+}
+{% endschema %}

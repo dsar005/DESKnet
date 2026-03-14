@@ -1,0 +1,75 @@
+<section class="hero" id="Hero">
+  <div class="hero__bg">
+    <div class="hero__bg-gradient"></div>
+    <div class="hero__bg-grid"></div>
+    {%- if section.settings.background_image != blank -%}
+      <img class="hero__image"
+        src="{{ section.settings.background_image | image_url: width: 1600 }}"
+        alt=""
+        loading="eager"
+        width="1600"
+        height="900">
+    {%- endif -%}
+  </div>
+
+  <div class="hero__content">
+    <div class="hero__eyebrow">
+      Workspace Essentials — Engineered for Focus
+    </div>
+
+    <h1 class="hero__title">
+      <span class="line gradient-text">Work Smarter.</span>
+      <span class="line">Design <span class="accent">Better.</span></span>
+    </h1>
+
+    <p class="hero__subtitle">
+      {{ section.settings.subtitle | default: "Premium minimal desk accessories built for students, developers, and creators who demand the best from their workspace." }}
+    </p>
+
+    <div class="hero__actions">
+      <a href="{{ section.settings.cta_url | default: '/collections/all' }}" class="btn btn--primary btn--lg">
+        {{ section.settings.cta_label | default: 'Shop All Products' }}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="{{ section.settings.secondary_url | default: '/pages/about' }}" class="btn btn--ghost" style="color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.2);">
+        Our Story
+      </a>
+    </div>
+
+    <div class="hero__meta">
+      <div class="hero__stat">
+        <span class="hero__stat-value">15K+</span>
+        <span class="hero__stat-label">Happy Customers</span>
+      </div>
+      <div class="hero__meta-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-value">4.9★</span>
+        <span class="hero__stat-label">Average Rating</span>
+      </div>
+      <div class="hero__meta-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-value">30+</span>
+        <span class="hero__stat-label">Products</span>
+      </div>
+      <div class="hero__meta-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-value">100%</span>
+        <span class="hero__stat-label">Satisfaction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "image_picker", "id": "background_image", "label": "Background image" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Premium minimal desk accessories built for students, developers, and creators who demand the best from their workspace." },
+    { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Shop All Products" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "url", "id": "secondary_url", "label": "Secondary button URL" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

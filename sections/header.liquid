@@ -1,0 +1,114 @@
+<header class="site-header" id="SiteHeader">
+  <nav class="header__inner">
+
+    <!-- Logo -->
+    <a href="/" class="header__logo" aria-label="{{ shop.name }}">
+      <div class="header__logo-mark">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="8" width="18" height="11" rx="1.5" fill="white"/>
+          <path d="M7 8V6a5 5 0 0110 0v2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="12" cy="13.5" r="1.5" fill="#4f46e5"/>
+        </svg>
+      </div>
+      <span class="header__logo-text">DESK<span>net</span></span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="header__nav" role="navigation">
+      <a href="/collections/all" class="header__nav-link">Shop All</a>
+      <a href="/collections/desk-accessories" class="header__nav-link">Accessories</a>
+      <a href="/collections/stands-mounts" class="header__nav-link">Stands &amp; Mounts</a>
+      <a href="/collections/lighting" class="header__nav-link">Lighting</a>
+      <a href="/collections/organization" class="header__nav-link">Organization</a>
+      <a href="/pages/about" class="header__nav-link">About</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="header__actions">
+
+      <!-- Search -->
+      <a href="/search" class="header__action-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="10.5" cy="10.5" r="6.5"/>
+          <path d="M20 20l-4.3-4.3" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <!-- Account -->
+      <a href="/account" class="header__action-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </a>
+
+      <!-- Cart -->
+      <button class="header__action-btn" data-open-cart aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="header__cart-count" id="CartCount" style="display:none;">0</span>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button class="header__hamburger" id="MobileMenuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="MobileMenu" role="dialog" aria-label="Navigation menu">
+  <div class="mobile-menu__header">
+    <a href="/" class="header__logo">
+      <div class="header__logo-mark">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="8" width="18" height="11" rx="1.5" fill="white"/>
+          <path d="M7 8V6a5 5 0 0110 0v2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="12" cy="13.5" r="1.5" fill="#4f46e5"/>
+        </svg>
+      </div>
+      <span class="header__logo-text">DESK<span>net</span></span>
+    </a>
+    <button class="mobile-menu__close" id="CloseMobileMenu" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="mobile-menu__nav">
+    <a href="/collections/all" class="mobile-menu__link">Shop All <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="/collections/desk-accessories" class="mobile-menu__link">Accessories <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="/collections/stands-mounts" class="mobile-menu__link">Stands &amp; Mounts <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="/collections/lighting" class="mobile-menu__link">Lighting <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="/collections/organization" class="mobile-menu__link">Organization <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="/pages/about" class="mobile-menu__link">About <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="/pages/contact" class="mobile-menu__link">Contact <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </nav>
+  <div class="mobile-menu__actions">
+    <a href="/collections/all" class="btn btn--primary btn--full">Shop Now</a>
+    <a href="/account" class="btn btn--ghost btn--full">My Account</a>
+  </div>
+</div>
+
+<script>
+document.getElementById('CloseMobileMenu')?.addEventListener('click', () => {
+  document.getElementById('MobileMenu')?.classList.remove('open');
+  document.getElementById('MobileMenuOverlay')?.classList.remove('visible');
+  document.getElementById('MobileMenuToggle')?.classList.remove('active');
+  document.body.style.overflow = '';
+});
+</script>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}

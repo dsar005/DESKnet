@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "main": { "type": "page-refunds", "settings": {} }
+  },
+  "order": ["main"]
+}

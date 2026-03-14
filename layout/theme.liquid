@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0d0d0d">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+  </head>
+
+  <body class="template-{{ template.name }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix }}{% endif %}">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">Skip to content</a>
+
+    {%- sections 'announcement-bar' -%}
+    {%- sections 'header' -%}
+
+    <!-- Cart Drawer -->
+    {%- sections 'cart-drawer' -%}
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="MobileMenuOverlay"></div>
+
+    <!-- Email Popup -->
+    <div class="email-popup" id="EmailPopup" role="dialog" aria-modal="true" aria-label="Subscribe for offers">
+      <div class="email-popup__inner">
+        <button class="email-popup__close" id="CloseEmailPopup" aria-label="Close popup">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="email-popup__badge">Exclusive Offer</div>
+        <h2 class="email-popup__title">Upgrade Your Workspace</h2>
+        <p class="email-popup__text">Get <strong>15% off</strong> your first order plus early access to new products.</p>
+        <form class="email-popup__form" id="PopupEmailForm">
+          <input type="email" placeholder="Enter your email" required class="email-popup__input">
+          <button type="submit" class="btn btn--primary email-popup__btn">Claim 15% Off</button>
+        </form>
+        <p class="email-popup__disclaimer">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {%- sections 'footer' -%}
+
+    <!-- Toast notification -->
+    <div class="toast" id="Toast" role="status" aria-live="polite"></div>
+
+    {{ 'theme.js' | asset_url | script_tag }}
+  </body>
+</html>

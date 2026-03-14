@@ -1,0 +1,24 @@
+<section class="newsletter">
+  <div class="newsletter__inner">
+    <span class="newsletter__eyebrow">Stay in the Loop</span>
+    <h2 class="newsletter__title">Get 15% Off Your First Order</h2>
+    <p class="newsletter__text">Join 25,000+ workspace enthusiasts. Get exclusive deals, setup inspiration, and early product access.</p>
+
+    <form class="newsletter__form" id="NewsletterForm" action="/contact#contact_form" method="post">
+      <input type="hidden" name="form_type" value="customer">
+      <input type="hidden" name="utf8" value="✓">
+      <input type="email" name="contact[email]" placeholder="Enter your email address" required class="newsletter__input">
+      <button type="submit" class="newsletter__btn">
+        Get 15% Off
+      </button>
+    </form>
+    <p class="newsletter__disclaimer">By subscribing you agree to our Privacy Policy. Unsubscribe at any time.</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

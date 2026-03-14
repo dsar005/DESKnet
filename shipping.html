@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DESKnet Shipping & Returns — Free shipping over $75, 30-day returns, and worldwide delivery.">
+  <title>Shipping & Returns — DESKnet</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+  <div id="ann-bar">
+    <i data-feather="truck" aria-hidden="true"></i> Free shipping on orders over $75 — Use code <strong>DESK10</strong> for 10% off!
+    <a href="shop.html">Shop Now →</a>
+    <span class="ann-close">×</span>
+  </div>
+
+  <header class="site-header">
+    <div class="hdr-inner">
+      <a href="index.html" class="logo"><div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span></a>
+      <nav class="main-nav desktop-nav">
+        <a href="index.html">Home</a><a href="shop.html">Shop</a>
+        <a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="hdr-actions">
+        <button class="hdr-btn" data-search-open><i data-feather="search"></i></button>
+        <a href="#" class="hdr-btn"><i data-feather="user"></i></a>
+        <button class="hdr-btn" data-cart-open><i data-feather="shopping-bag"></i><span class="cart-dot">0</span></button>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-overlay">
+    <div class="search-field"><i data-feather="search"></i><input type="search" placeholder="Search products…"></div>
+    <span class="search-x">×</span>
+  </div>
+  <div class="mobile-menu">
+    <div class="mm-hdr"><a href="index.html" class="logo"><div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span></a><span class="mm-close">×</span></div>
+    <nav class="mm-nav">
+      <a href="index.html">Home</a><a href="shop.html">Shop All</a><a href="about.html">About</a>
+      <a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="mm-foot"><a href="shop.html" class="btn btn-primary w-full">Shop Now</a></div>
+  </div>
+  <div class="cart-overlay"></div>
+  <div class="cart-drawer">
+    <div class="cart-hdr"><h3>Your Cart</h3><span class="cart-x">×</span></div>
+    <div class="cart-body"><div class="cart-empty"><div class="cart-empty-icon"><i data-feather="shopping-cart" aria-hidden="true"></i></div><h4>Your cart is empty</h4><a href="shop.html" class="btn btn-primary btn-sm" style="margin-top:1.5rem">Shop Now</a></div></div>
+    <div class="cart-ftr" style="display:none">
+      <div class="cart-sub-row"><span>Subtotal</span><span>$0.00</span></div>
+      <p class="cart-note">Shipping & taxes calculated at checkout</p>
+      <div class="cart-btns"><a href="cart.html" class="btn btn-secondary w-full">View Cart</a><a href="#checkout" class="btn btn-dark w-full">Checkout →</a></div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <h1>Shipping & Returns</h1>
+    <p>We ship worldwide with fast processing times. All orders come with our 30-day no-hassle return guarantee.</p>
+  </div>
+
+  <!-- Content -->
+  <div class="shipping-page">
+    <div class="container">
+
+      <!-- Shipping -->
+      <div class="policy-card">
+        <div class="policy-card-hdr">
+          <span class="pc-hdr-icon"><i data-feather="truck" aria-hidden="true"></i></span>
+          <span class="pc-hdr-title">Shipping Policy</span>
+        </div>
+        <div class="policy-card-body">
+          <div class="policy-block">
+            <h4>Processing Time</h4>
+            <p>All orders are processed within 1–2 business days. Orders placed before 2:00 PM EST Monday–Friday are typically shipped same day. Orders placed after 2:00 PM or on weekends/holidays will be processed the next business day.</p>
+          </div>
+
+          <h4 style="margin-bottom:1rem;font-size:.9375rem;color:var(--text)">Domestic Shipping (United States)</h4>
+          <table class="ship-table">
+            <thead>
+              <tr>
+                <th>Shipping Method</th>
+                <th>Estimated Delivery</th>
+                <th>Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Standard Shipping</td><td>5–7 Business Days</td><td>$5.99 (FREE on orders $75+)</td></tr>
+              <tr><td>Expedited Shipping</td><td>2–3 Business Days</td><td>$12.99</td></tr>
+              <tr><td>Priority Overnight</td><td>1 Business Day</td><td>$24.99</td></tr>
+            </tbody>
+          </table>
+
+          <h4 style="margin:1.5rem 0 1rem;font-size:.9375rem;color:var(--text)">International Shipping</h4>
+          <table class="ship-table">
+            <thead>
+              <tr>
+                <th>Region</th>
+                <th>Estimated Delivery</th>
+                <th>Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Canada</td><td>5–10 Business Days</td><td>$14.99</td></tr>
+              <tr><td>United Kingdom</td><td>7–12 Business Days</td><td>$17.99</td></tr>
+              <tr><td>European Union</td><td>7–14 Business Days</td><td>$19.99</td></tr>
+              <tr><td>Australia & NZ</td><td>10–16 Business Days</td><td>$22.99</td></tr>
+              <tr><td>Asia Pacific</td><td>10–18 Business Days</td><td>$24.99</td></tr>
+              <tr><td>Latin America</td><td>14–21 Business Days</td><td>$27.99</td></tr>
+              <tr><td>Rest of World</td><td>14–25 Business Days</td><td>$29.99</td></tr>
+            </tbody>
+          </table>
+
+          <div class="policy-block" style="margin-top:1.5rem">
+            <h4>Order Tracking</h4>
+            <p>A tracking number will be sent to your email address once your order ships. You can use this number to track your package on the carrier's website. Allow 24 hours for tracking information to become active after receiving your shipment confirmation.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>Important Notes</h4>
+            <ul>
+              <li>International customers are responsible for any import duties, taxes, and customs fees</li>
+              <li>We are not responsible for delays caused by customs processing</li>
+              <li>Delivery times are estimates and not guaranteed</li>
+              <li>Free shipping applies to the 48 contiguous US states only</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Returns -->
+      <div class="policy-card">
+        <div class="policy-card-hdr">
+          <span class="pc-hdr-icon"><i data-feather="rotate-ccw" aria-hidden="true"></i></span>
+          <span class="pc-hdr-title">Returns & Exchanges</span>
+        </div>
+        <div class="policy-card-body">
+          <div class="policy-block">
+            <h4>30-Day Return Window</h4>
+            <p>We stand behind every product we sell. If you're not completely satisfied with your purchase, you may return it within <strong>30 days of delivery</strong> for a full refund or exchange. No questions asked.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>Return Requirements</h4>
+            <ul>
+              <li>Item must be returned within 30 days of delivery date</li>
+              <li>Item must be in original, unused condition with all original packaging</li>
+              <li>All accessories, documentation, and components must be included</li>
+              <li>Items showing signs of use, damage, or modification may not be eligible</li>
+            </ul>
+          </div>
+
+          <div class="policy-block">
+            <h4>How to Initiate a Return</h4>
+            <p>Email <a href="mailto:hello@desknet.co" style="color:var(--accent)">hello@desknet.co</a> with your order number and reason for return (optional). We'll respond within 24 hours with a prepaid return shipping label and instructions. Simply pack the item securely and drop it off at any UPS or USPS location.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>Refund Timeline</h4>
+            <p>Once we receive your returned item, refunds are processed within 1–2 business days. The refund will appear on your original payment method within 5–10 business days, depending on your bank.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>Exchanges</h4>
+            <p>Want a different color, size, or product? Contact us and we'll set up an exchange. We'll ship your replacement item as soon as we receive the original. If there's a price difference, we'll adjust accordingly.</p>
+          </div>
+
+          <div class="policy-block">
+            <h4>Damaged or Defective Items</h4>
+            <p>If your item arrives damaged or is defective, please email us within 7 days of delivery with photos and your order number. We'll send a replacement immediately at no cost to you.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact CTA -->
+      <div style="background:var(--dark);border-radius:var(--r-xl);padding:2.5rem;text-align:center;margin-top:1rem">
+        <h3 style="color:#fff;margin-bottom:.75rem">Need Help with an Order?</h3>
+        <p style="color:rgba(255,255,255,.58);margin-bottom:1.75rem">Our support team is ready to help with any shipping or return questions.</p>
+        <a href="contact.html" class="btn btn-primary">Contact Support →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span></a>
+        <p>Premium minimal desk accessories designed to transform your workspace.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">𝕀</a><a href="#" class="social-btn">𝕏</a><a href="#" class="social-btn">▶</a><a href="#" class="social-btn">♪</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><ul>
+        <li><a href="shop.html">All Products</a></li><li><a href="shop.html">Laptop Stands</a></li>
+        <li><a href="shop.html">Desk Mats</a></li><li><a href="shop.html">Lighting</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Help</h4><ul>
+        <li><a href="faq.html">FAQ</a></li><li><a href="shipping.html">Shipping & Returns</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul>
+        <li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms</a></li>
+        <li><a href="refund.html">Refunds</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 DESKnet. All rights reserved.</span>
+      <div class="footer-pay"><span class="pay-icon">VISA</span><span class="pay-icon">MC</span><span class="pay-icon">AMEX</span><span class="pay-icon">PAYPAL</span></div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!-- Shipping Page Hero -->
+<div style="background:var(--color-bg-alt);padding:var(--sp-16) 0 var(--sp-8);border-bottom:1px solid var(--color-border)">
+  <div class="container">
+    <span class="section__eyebrow" style="display:block;text-align:left;margin-bottom:var(--sp-3)">Policies</span>
+    <h1 style="font-family:var(--font-heading);font-size:clamp(2.5rem,5vw,4rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:var(--sp-4)">Shipping &amp; Returns</h1>
+    <p style="font-size:var(--fs-lg);color:var(--color-text-muted);max-width:600px">Everything you need to know about delivery times, costs, and our easy returns process.</p>
+  </div>
+</div>
+
+<div class="policy-page">
+  <div class="container">
+    <div class="policy-page__layout">
+
+      <!-- Sidebar nav -->
+      <div class="policy-nav">
+        <ul class="policy-nav__links">
+          <li><a href="#shipping-overview" class="policy-nav__link active">Shipping Overview</a></li>
+          <li><a href="#shipping-rates" class="policy-nav__link">Shipping Rates</a></li>
+          <li><a href="#processing-time" class="policy-nav__link">Processing Time</a></li>
+          <li><a href="#international" class="policy-nav__link">International Shipping</a></li>
+          <li><a href="#tracking" class="policy-nav__link">Order Tracking</a></li>
+          <li><a href="#returns" class="policy-nav__link">Returns Policy</a></li>
+          <li><a href="#refunds" class="policy-nav__link">Refunds</a></li>
+          <li><a href="#exchanges" class="policy-nav__link">Exchanges</a></li>
+          <li><a href="#damaged" class="policy-nav__link">Damaged Items</a></li>
+        </ul>
+      </div>
+
+      <!-- Content -->
+      <div class="policy-content animate-on-scroll">
+        <p class="last-updated">Last updated: January 15, 2026</p>
+
+        <!-- Quick summary cards -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);margin-bottom:var(--sp-12)">
+          {%- assign summary_items = "🚀|Ships in 24hrs|Orders processed and shipped within 24 hours on weekdays|📦|Free Shipping|On all US orders over $50 with standard delivery|🔄|30-Day Returns|Hassle-free returns on all orders within 30 days" | split: "|" -%}
+          {%- for i in (0..2) -%}
+            {%- assign j = i | times: 3 -%}
+            <div style="padding:var(--sp-6);background:var(--color-bg-alt);border-radius:var(--radius-lg);border:1px solid var(--color-border);text-align:center">
+              <div style="font-size:2rem;margin-bottom:var(--sp-3)">{{ summary_items[j] }}</div>
+              <div style="font-family:var(--font-heading);font-weight:700;font-size:var(--fs-base);margin-bottom:var(--sp-2)">{{ summary_items[j | plus: 1] }}</div>
+              <div style="font-size:var(--fs-xs);color:var(--color-text-muted);line-height:1.5">{{ summary_items[j | plus: 2] }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div id="shipping-overview" class="policy-section">
+          <h2>Shipping Overview</h2>
+          <p>At DESKnet, we're committed to getting your workspace upgrade to you as quickly and reliably as possible. We partner with trusted carriers including USPS, UPS, FedEx, and DHL to ensure your order arrives in perfect condition.</p>
+          <div class="policy-callout">
+            <p>📦 All orders include full tracking from dispatch to doorstep. You'll receive email updates at every stage of your delivery.</p>
+          </div>
+        </div>
+
+        <div id="shipping-rates" class="policy-section">
+          <h2>Shipping Rates (United States)</h2>
+          <table class="policy-table">
+            <thead>
+              <tr><th>Shipping Method</th><th>Delivery Time</th><th>Cost</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Standard Shipping</td><td>3–7 business days</td><td>Free on orders over $50, otherwise $4.99</td></tr>
+              <tr><td>Express Shipping</td><td>1–2 business days</td><td>$12.99</td></tr>
+              <tr><td>Same-Day Delivery</td><td>Same day (order by 12pm, select cities)</td><td>$19.99</td></tr>
+              <tr><td>Saturday Delivery</td><td>Saturday (order by Friday 12pm)</td><td>$14.99</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="processing-time" class="policy-section">
+          <h2>Order Processing Time</h2>
+          <p>All in-stock items are processed and prepared for shipment within <strong>1 business day</strong> of order placement. Orders placed before 2:00 PM EST on weekdays typically ship the same day.</p>
+          <h3>Processing Schedule:</h3>
+          <ul>
+            <li>Orders placed Monday–Friday before 2pm EST: Ship same day</li>
+            <li>Orders placed Monday–Friday after 2pm EST: Ship next business day</li>
+            <li>Orders placed Saturday–Sunday: Ship the following Monday</li>
+            <li>Orders placed on holidays: Ship the next business day</li>
+          </ul>
+          <p>During high-demand periods (like product launches and holidays), processing may take up to 2 business days. We'll notify you by email if this applies to your order.</p>
+        </div>
+
+        <div id="international" class="policy-section">
+          <h2>International Shipping</h2>
+          <p>We ship to over 40 countries worldwide. International shipping rates are calculated at checkout based on your location, order weight, and selected service.</p>
+          <table class="policy-table">
+            <thead>
+              <tr><th>Region</th><th>Delivery Time</th><th>Starting Cost</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Canada</td><td>5–10 business days</td><td>$9.99</td></tr>
+              <tr><td>United Kingdom &amp; Europe</td><td>7–14 business days</td><td>$14.99</td></tr>
+              <tr><td>Australia &amp; New Zealand</td><td>10–18 business days</td><td>$16.99</td></tr>
+              <tr><td>Asia-Pacific</td><td>10–21 business days</td><td>$18.99</td></tr>
+              <tr><td>Rest of World</td><td>14–28 business days</td><td>$19.99</td></tr>
+            </tbody>
+          </table>
+          <p><strong>Important:</strong> Customers are responsible for any customs duties, taxes, or import fees charged by their country. These fees are not included in our prices or shipping charges.</p>
+        </div>
+
+        <div id="tracking" class="policy-section">
+          <h2>Order Tracking</h2>
+          <p>Once your order ships, you'll receive an automated shipping confirmation email with your tracking number and a direct link to track your package. You can also:</p>
+          <ul>
+            <li>Log into your account at <strong>desknet.co/account</strong> to view your order status</li>
+            <li>Use the carrier's website directly with your tracking number</li>
+            <li>Contact our support team at <strong>hello@desknet.co</strong> with your order number</li>
+          </ul>
+          <p>If your tracking shows "delivered" but you haven't received your package, please wait 24 hours (packages are sometimes pre-scanned) then contact us and your local post office.</p>
+        </div>
+
+        <div id="returns" class="policy-section">
+          <h2>Returns Policy</h2>
+          <p>We want you to love your DESKnet products. If for any reason you're not fully satisfied, we offer a <strong>30-day hassle-free return policy</strong>.</p>
+          <h3>Return Eligibility:</h3>
+          <ul>
+            <li>Items must be returned within 30 days of the delivery date</li>
+            <li>Items must be in their original condition, unused, and in original packaging</li>
+            <li>Include all original accessories, manuals, and components</li>
+            <li>Provide your order number or proof of purchase</li>
+          </ul>
+          <h3>Non-Returnable Items:</h3>
+          <ul>
+            <li>Items marked as "Final Sale"</li>
+            <li>Customized or personalized items</li>
+            <li>Items returned after the 30-day window</li>
+            <li>Items showing signs of use, damage, or missing parts not due to our error</li>
+          </ul>
+          <h3>How to Return:</h3>
+          <p>Email us at <a href="mailto:hello@desknet.co">hello@desknet.co</a> with your order number and the reason for return. We'll send you a prepaid return label and instructions within 24 hours.</p>
+        </div>
+
+        <div id="refunds" class="policy-section">
+          <h2>Refunds</h2>
+          <p>Once we receive and inspect your returned item (typically 1–3 business days), we'll process your refund within <strong>3–5 business days</strong>.</p>
+          <p>Refunds are issued to the original payment method. Please allow additional time for your bank or credit card company to process and post the refund (typically 2–10 business days).</p>
+          <div class="policy-callout">
+            <p>💡 If you haven't received your refund after 10 business days, please contact us and we'll investigate immediately.</p>
+          </div>
+        </div>
+
+        <div id="exchanges" class="policy-section">
+          <h2>Exchanges</h2>
+          <p>Want a different size, color, or product? We make exchanges easy. Simply return your original item (using the process above) and place a new order for the item you'd like. This ensures you receive the fastest possible service.</p>
+          <p>If the new item is a different price, you'll be refunded or charged the difference automatically.</p>
+        </div>
+
+        <div id="damaged" class="policy-section">
+          <h2>Damaged or Defective Items</h2>
+          <p>In the rare event that your item arrives damaged or defective, please contact us within <strong>48 hours of delivery</strong> at <a href="mailto:hello@desknet.co">hello@desknet.co</a> with:</p>
+          <ul>
+            <li>Your order number</li>
+            <li>Clear photos of the damaged item and packaging</li>
+            <li>A brief description of the issue</li>
+          </ul>
+          <p>We'll arrange a free replacement or full refund immediately — no need to return the damaged item in most cases.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Still need help? -->
+<section style="padding:var(--sp-16) 0;background:var(--color-bg-alt);border-top:1px solid var(--color-border)">
+  <div class="container container--xs text-center">
+    <h2 style="font-family:var(--font-heading);font-size:var(--fs-2xl);font-weight:800;margin-bottom:var(--sp-3)">Still have shipping questions?</h2>
+    <p style="color:var(--color-text-muted);margin-bottom:var(--sp-6)">Our support team is happy to help with any shipping, tracking, or return questions.</p>
+    <div style="display:flex;gap:var(--sp-4);justify-content:center;flex-wrap:wrap">
+      <a href="/pages/contact" class="btn btn--primary">Contact Support</a>
+      <a href="/pages/faq" class="btn btn--ghost">View FAQ</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shipping & Returns Page",
+  "settings": []
+}
+{% endschema %}

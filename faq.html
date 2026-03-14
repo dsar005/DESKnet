@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DESKnet FAQ — Answers to common questions about shipping, returns, products, and more.">
+  <title>FAQ — DESKnet</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+  <div id="ann-bar">
+    <i data-feather="truck" aria-hidden="true"></i> Free shipping on orders over $75 — Use code <strong>DESK10</strong> for 10% off!
+    <a href="shop.html">Shop Now →</a>
+    <span class="ann-close">×</span>
+  </div>
+
+  <header class="site-header">
+    <div class="hdr-inner">
+      <a href="index.html" class="logo"><div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span></a>
+      <nav class="main-nav desktop-nav">
+        <a href="index.html">Home</a><a href="shop.html">Shop</a>
+        <a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="hdr-actions">
+        <button class="hdr-btn" data-search-open><i data-feather="search"></i></button>
+        <a href="#" class="hdr-btn"><i data-feather="user"></i></a>
+        <button class="hdr-btn" data-cart-open><i data-feather="shopping-bag"></i><span class="cart-dot">0</span></button>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-overlay">
+    <div class="search-field"><i data-feather="search"></i><input type="search" placeholder="Search products…"></div>
+    <span class="search-x">×</span>
+  </div>
+  <div class="mobile-menu">
+    <div class="mm-hdr"><a href="index.html" class="logo"><div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span></a><span class="mm-close">×</span></div>
+    <nav class="mm-nav">
+      <a href="index.html">Home</a><a href="shop.html">Shop All</a><a href="about.html">About</a>
+      <a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="mm-foot"><a href="shop.html" class="btn btn-primary w-full">Shop Now</a></div>
+  </div>
+  <div class="cart-overlay"></div>
+  <div class="cart-drawer">
+    <div class="cart-hdr"><h3>Your Cart</h3><span class="cart-x">×</span></div>
+    <div class="cart-body"><div class="cart-empty"><div class="cart-empty-icon"><i data-feather="shopping-cart" aria-hidden="true"></i></div><h4>Your cart is empty</h4><a href="shop.html" class="btn btn-primary btn-sm" style="margin-top:1.5rem">Shop Now</a></div></div>
+    <div class="cart-ftr" style="display:none">
+      <div class="cart-sub-row"><span>Subtotal</span><span>$0.00</span></div>
+      <p class="cart-note">Shipping & taxes calculated at checkout</p>
+      <div class="cart-btns"><a href="cart.html" class="btn btn-secondary w-full">View Cart</a><a href="#checkout" class="btn btn-dark w-full">Checkout →</a></div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <h1>Frequently Asked Questions</h1>
+    <p>Can't find your answer? <a href="contact.html" style="color:#a5b4fc;text-decoration:underline">Contact our support team</a> — we're happy to help.</p>
+  </div>
+
+  <!-- FAQ Content -->
+  <div class="faq-page">
+    <div class="container">
+      <div class="faq-container">
+        <!-- Categories -->
+        <div class="faq-cats">
+          <button class="faq-cat-btn active" data-cat="all">All Questions</button>
+          <button class="faq-cat-btn" data-cat="shipping">Shipping</button>
+          <button class="faq-cat-btn" data-cat="returns">Returns</button>
+          <button class="faq-cat-btn" data-cat="products">Products</button>
+          <button class="faq-cat-btn" data-cat="orders">Orders</button>
+          <button class="faq-cat-btn" data-cat="account">Account</button>
+        </div>
+
+        <!-- Shipping -->
+        <div class="faq-item" data-cat="shipping">
+          <div class="faq-q">How long does shipping take?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">For US orders, standard shipping takes 5–7 business days and expedited takes 2–3 business days. All orders placed before 2pm EST are processed and dispatched same-day. International orders typically take 7–21 business days depending on destination. Once shipped, you'll receive a tracking link via email automatically.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="shipping">
+          <div class="faq-q">Do you offer free shipping?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Yes! We offer free standard shipping on all US orders over $75. For orders under $75, standard shipping is $5.99. Expedited and overnight shipping options are available at checkout for an additional fee.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="shipping">
+          <div class="faq-q">Do you ship internationally?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Yes, we ship to 40+ countries worldwide! International shipping rates and delivery times vary by destination. Canada typically takes 5–10 business days ($14.99), Europe 7–14 days ($19.99), and Asia Pacific 10–18 days ($24.99). Import duties and taxes may apply depending on your country — these are the responsibility of the customer.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="orders">
+          <div class="faq-q">How can I track my order?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Once your order ships, you'll receive an automated email with your tracking number and a direct link to track your package. You can also track your order by logging into your DESKnet account and visiting the "My Orders" section. If you haven't received a tracking email within 2 business days of placing your order, please contact us at hello@desknet.co.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="returns">
+          <div class="faq-q">What is your return policy?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">We offer a 30-day no-questions-asked return policy. If you're not completely satisfied with your purchase, you can return it within 30 days for a full refund. Items must be in their original condition and packaging. To initiate a return, email us at hello@desknet.co with your order number and reason for return (optional). We'll send you a prepaid return label within 24 hours.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="returns">
+          <div class="faq-q">How long do refunds take?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Once we receive your return, we process refunds within 1–2 business days. The refund will appear on your original payment method within 5–10 business days depending on your bank or card provider. You'll receive an email confirmation once the refund is processed. For exchanges, the new item is typically shipped within 1 business day of receiving your return.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="returns">
+          <div class="faq-q">Can I exchange a product for a different color or size?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Absolutely! Exchanges are easy. Contact us within 30 days of receiving your order at hello@desknet.co with your order number and the item you'd like to exchange for. We'll send you a prepaid return label and ship the replacement item as soon as we receive the original. If there's a price difference, we'll charge or refund the difference accordingly.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="products">
+          <div class="faq-q">What laptops is the Laptop Stand compatible with?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">The DESKnet Adjustable Laptop Stand is compatible with virtually all laptops between 10″ and 17″. This includes MacBook Air, MacBook Pro (all sizes), Dell XPS, ThinkPad, Surface Laptop, HP Spectre, Razer Blade, and most other popular laptop models. The non-slip silicone pads grip any laptop surface securely.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="products">
+          <div class="faq-q">What wireless charging standards does the Wireless Charging Pad support?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">The DESKnet Wireless Charging Pad supports Qi wireless charging (the universal standard) at up to 15W. It's compatible with all Qi-enabled devices including iPhone 8 and later (including 15W MagSafe-equivalent speed on iPhone 12+), Samsung Galaxy S and Note series, Google Pixel, and all Qi-compatible AirPods cases. It does not support MagSafe proprietary accessories.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="products">
+          <div class="faq-q">Are DESKnet products covered by a warranty?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Yes — every DESKnet product comes with a 1-year manufacturer's warranty covering defects in materials and workmanship. If your product fails due to a manufacturing defect within 12 months of purchase, we'll replace it free of charge. Normal wear and tear, accidental damage, and misuse are not covered. To make a warranty claim, email hello@desknet.co with your order number and photos of the issue.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="orders">
+          <div class="faq-q">Can I change or cancel my order after placing it?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">We process orders quickly, so we can only modify or cancel within 2 hours of the order being placed. If you need to make a change, contact us immediately at hello@desknet.co with your order number. Once an order has shipped, it cannot be cancelled — but you can return it under our 30-day return policy after receiving it.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="orders">
+          <div class="faq-q">Do you offer discount codes?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Yes! First-time customers can use code <strong>DESK10</strong> for 10% off their first order. Subscribe to our newsletter for exclusive member discounts, early access to sales, and seasonal promotions. We also run occasional site-wide sales on major shopping holidays.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="account">
+          <div class="faq-q">How do I create a DESKnet account?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">You can create an account by clicking the person icon in the top navigation and selecting "Create Account." You can also check out as a guest — a guest account will be automatically created with your email address so you can track your order. Having an account lets you view order history, save addresses, track wishlist items, and access exclusive member perks.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="account">
+          <div class="faq-q">How do I contact customer support?<div class="faq-icon-wrap">+</div></div>
+          <div class="faq-a"><div class="faq-a-inner">The fastest way to reach us is by email at hello@desknet.co. We respond to all emails within 24 hours (usually much faster). You can also use the contact form on our <a href="contact.html" style="color:var(--accent)">Contact page</a>. Our support team is available Monday–Friday 9am–6pm EST and weekends 10am–3pm EST.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section style="background:var(--dark);padding:4rem 2rem;text-align:center">
+    <div style="max-width:520px;margin:0 auto">
+      <h2 style="color:#fff;margin-bottom:.875rem">Still have a question?</h2>
+      <p style="color:rgba(255,255,255,.58);margin-bottom:2rem">Our support team is made up of real workspace enthusiasts who are happy to help with anything.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Contact Support →</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span></a>
+        <p>Premium minimal desk accessories designed to transform your workspace.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">𝕀</a><a href="#" class="social-btn">𝕏</a><a href="#" class="social-btn">▶</a><a href="#" class="social-btn">♪</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Shop</h4><ul>
+        <li><a href="shop.html">All Products</a></li><li><a href="shop.html">Laptop Stands</a></li>
+        <li><a href="shop.html">Desk Mats</a></li><li><a href="shop.html">Lighting</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Help</h4><ul>
+        <li><a href="faq.html">FAQ</a></li><li><a href="shipping.html">Shipping & Returns</a></li>
+        <li><a href="contact.html">Contact</a></li><li><a href="about.html">About</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul>
+        <li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms</a></li>
+        <li><a href="refund.html">Refunds</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 DESKnet. All rights reserved.</span>
+      <div class="footer-pay"><span class="pay-icon">VISA</span><span class="pay-icon">MC</span><span class="pay-icon">AMEX</span><span class="pay-icon">PAYPAL</span></div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>

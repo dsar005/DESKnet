@@ -1,0 +1,108 @@
+<div class="workspace animate-on-scroll">
+  <!-- Visual side -->
+  <div class="workspace__visual">
+    <div class="workspace__product-showcase">
+      <div class="workspace__desk-mockup">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 800 }}"
+            alt="DESKnet setup"
+            style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-lg);">
+        {%- else -%}
+        <!-- SVG desk illustration placeholder -->
+        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:85%;opacity:0.7">
+          <!-- Monitor -->
+          <rect x="100" y="30" width="200" height="130" rx="8" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+          <rect x="110" y="40" width="180" height="110" rx="4" fill="rgba(79,70,229,0.15)"/>
+          <!-- Monitor stand -->
+          <path d="M185 160 L185 185 L215 185 L215 160" stroke="rgba(255,255,255,0.2)" stroke-width="2" fill="none"/>
+          <line x1="170" y1="185" x2="230" y2="185" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <!-- Keyboard -->
+          <rect x="80" y="210" width="175" height="50" rx="6" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <!-- Keys -->
+          {%- for row in (1..3) -%}
+            {%- for col in (1..10) -%}
+              <rect x="{{ 86 | plus: forloop.index0 | times: 16 }}" y="{{ 216 | plus: row | times: 14 }}" width="13" height="11" rx="2" fill="rgba(255,255,255,0.06)"/>
+            {%- endfor -%}
+          {%- endfor -%}
+          <!-- Mouse -->
+          <rect x="275" y="215" width="50" height="68" rx="25" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <line x1="300" y1="215" x2="300" y2="240" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <!-- Desk surface line -->
+          <line x1="0" y1="200" x2="400" y2="200" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <!-- Lamp -->
+          <line x1="360" y1="60" x2="360" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+          <path d="M330 60 Q360 30 380 60" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <!-- Glow -->
+          <ellipse cx="355" cy="65" rx="35" ry="12" fill="rgba(6,182,212,0.1)"/>
+          <!-- Small items -->
+          <rect x="30" y="185" width="35" height="15" rx="4" fill="rgba(79,70,229,0.3)" stroke="rgba(79,70,229,0.5)" stroke-width="1"/>
+          <circle cx="47" cy="175" r="8" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+        </svg>
+        {%- endif -%}
+        <div class="workspace__mockup-label">DESKnet Setup</div>
+      </div>
+    </div>
+    <div class="workspace__visual-overlay"></div>
+  </div>
+
+  <!-- Content side -->
+  <div class="workspace__content">
+    <span class="section__eyebrow">Workspace Transformation</span>
+    <h2 class="section__title">Your Best Work Starts with the Right Setup</h2>
+    <p class="section__subtitle">A cluttered desk leads to a cluttered mind. DESKnet products create the clean, organized environment that lets you do your best work every day.</p>
+
+    <ul class="workspace__checklist">
+      <li class="workspace__check-item">
+        <div class="workspace__check-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="workspace__check-text">
+          <strong>Zero Cable Clutter</strong>
+          Our cable management solutions hide every wire so your desk looks as good as it performs.
+        </div>
+      </li>
+      <li class="workspace__check-item">
+        <div class="workspace__check-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="workspace__check-text">
+          <strong>Ergonomic Positioning</strong>
+          Laptop stands and monitor risers bring your screen to eye-level, reducing neck and shoulder strain.
+        </div>
+      </li>
+      <li class="workspace__check-item">
+        <div class="workspace__check-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="workspace__check-text">
+          <strong>Ambient Lighting</strong>
+          Set the perfect mood for any task — from focused work to video calls — with our desk light bars.
+        </div>
+      </li>
+      <li class="workspace__check-item">
+        <div class="workspace__check-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="workspace__check-text">
+          <strong>Protected Surface</strong>
+          Premium desk mats protect your desk while giving your mouse smooth, precise tracking.
+        </div>
+      </li>
+    </ul>
+
+    <a href="/collections/all" class="btn btn--primary btn--lg">
+      Build Your Setup
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Workspace Transformation",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Setup image" }
+  ],
+  "presets": [{ "name": "Workspace Transformation" }]
+}
+{% endschema %}

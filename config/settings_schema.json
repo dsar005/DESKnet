@@ -1,0 +1,62 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "DESKnet",
+    "theme_version": "1.0.0",
+    "theme_author": "DESKnet",
+    "theme_documentation_url": "https://desknet.co",
+    "theme_support_email": "hello@desknet.co"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      { "type": "image_picker", "id": "favicon", "label": "Favicon" },
+      { "type": "image_picker", "id": "social_image", "label": "Social sharing image", "info": "Used for social media previews. Recommended: 1200×630px" }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color", "id": "color_accent", "label": "Accent color", "default": "#4f46e5" },
+      { "type": "color", "id": "color_accent_hover", "label": "Accent hover color", "default": "#4338ca" },
+      { "type": "color", "id": "color_text", "label": "Text color", "default": "#111118" },
+      { "type": "color", "id": "color_bg", "label": "Background color", "default": "#ffffff" },
+      { "type": "color", "id": "color_bg_dark", "label": "Dark background color", "default": "#0d0d12" }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      { "type": "select", "id": "font_scale", "label": "Base font size", "options": [
+        { "value": "small", "label": "Small (14px)" },
+        { "value": "medium", "label": "Medium (16px)" },
+        { "value": "large", "label": "Large (18px)" }
+      ], "default": "medium" }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      { "type": "select", "id": "cart_type", "label": "Cart type", "options": [
+        { "value": "drawer", "label": "Drawer (slide-in)" },
+        { "value": "page", "label": "Page" }
+      ], "default": "drawer" }
+    ]
+  },
+  {
+    "name": "Popup",
+    "settings": [
+      { "type": "checkbox", "id": "popup_enabled", "label": "Enable email popup", "default": true },
+      { "type": "range", "id": "popup_delay", "label": "Popup delay (seconds)", "min": 0, "max": 30, "default": 5 }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      { "type": "text", "id": "social_instagram", "label": "Instagram URL", "default": "https://instagram.com/desknet" },
+      { "type": "text", "id": "social_twitter", "label": "Twitter URL", "default": "https://twitter.com/desknet" },
+      { "type": "text", "id": "social_tiktok", "label": "TikTok URL", "default": "https://tiktok.com/@desknet" },
+      { "type": "text", "id": "social_youtube", "label": "YouTube URL", "default": "https://youtube.com/@desknet" }
+    ]
+  }
+]

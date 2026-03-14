@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DESKnet — Premium minimal workspace accessories for students, developers, and remote workers. Elevate your desk setup with our curated collection.">
+  <title>DESKnet — Elevate Your Workspace</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Feather Icons CDN -->
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+  <!-- ═══════════════ ANNOUNCEMENT BAR ═══════════════ -->
+  <div id="ann-bar">
+    <i data-feather="truck" aria-hidden="true"></i> Free shipping on orders over $75 — Use code <strong>DESK10</strong> for 10% off your first order!
+    <a href="shop.html">Shop Now →</a>
+    <span class="ann-close" title="Close">×</span>
+  </div>
+
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="site-header">
+    <div class="hdr-inner">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div>
+        <span class="logo-text">DESKnet</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="main-nav desktop-nav">
+        <a href="index.html" class="active">Home</a>
+        <div class="nav-item">
+          <a href="shop.html">Shop ▾</a>
+          <div class="nav-dd">
+            <a href="shop.html">All Products</a>
+            <a href="shop.html#laptop-stands">Laptop Stands</a>
+            <a href="shop.html#desk-mats">Desk Mats</a>
+            <a href="shop.html#cable-mgmt">Cable Management</a>
+            <a href="shop.html#lighting">Lighting</a>
+            <a href="shop.html#charging">Charging</a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="hdr-actions">
+        <button class="hdr-btn" data-search-open title="Search" aria-label="Search">
+          <i data-feather="search"></i>
+        </button>
+        <a href="index.html#account" class="hdr-btn" title="Account" aria-label="Account">
+          <i data-feather="user"></i>
+        </a>
+        <button class="hdr-btn" data-cart-open title="Cart" aria-label="Open cart">
+          <i data-feather="shopping-bag"></i>
+          <span class="cart-dot">0</span>
+        </button>
+        <div class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════ SEARCH OVERLAY ═══════════════ -->
+  <div class="search-overlay">
+    <div class="search-field">
+      <i data-feather="search"></i>
+      <input type="search" placeholder="Search products, categories…" autocomplete="off">
+    </div>
+    <span class="search-x" title="Close">×</span>
+  </div>
+
+  <!-- ═══════════════ MOBILE MENU ═══════════════ -->
+  <div class="mobile-menu">
+    <div class="mm-hdr">
+      <a href="index.html" class="logo"><div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span></a>
+      <span class="mm-close">×</span>
+    </div>
+    <nav class="mm-nav">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop All</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="shipping.html">Shipping & Returns</a>
+    </nav>
+    <div class="mm-foot">
+      <a href="shop.html" class="btn btn-primary w-full">Shop Now</a>
+    </div>
+  </div>
+
+  <!-- ═══════════════ CART DRAWER ═══════════════ -->
+  <div class="cart-overlay"></div>
+  <div class="cart-drawer">
+    <div class="cart-hdr">
+      <h3>Your Cart <span class="cart-dot" style="position:static;margin-left:.5rem;vertical-align:middle">0</span></h3>
+      <span class="cart-x">×</span>
+    </div>
+    <div class="cart-body">
+      <div class="cart-empty">
+        <div class="cart-empty-icon"><i data-feather="shopping-cart" aria-hidden="true"></i></div>
+        <h4>Your cart is empty</h4>
+        <p>Start building your dream workspace.</p>
+        <a href="shop.html" class="btn btn-primary btn-sm" style="margin-top:1.5rem">Shop Now</a>
+      </div>
+    </div>
+    <div class="cart-ftr" style="display:none">
+      <div class="cart-sub-row"><span>Subtotal</span><span>$0.00</span></div>
+      <p class="cart-note">Shipping & taxes calculated at checkout</p>
+      <div class="cart-btns">
+        <a href="cart.html" class="btn btn-secondary w-full">View Cart</a>
+        <a href="#checkout" class="btn btn-dark w-full">Checkout →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ EMAIL POPUP ═══════════════ -->
+  <div class="popup-overlay">
+    <div class="popup-modal">
+      <div class="popup-img">
+        <img src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?auto=format&fit=crop&w=400&q=80" alt="Desk Setup" onerror="this.parentElement.style.background='#1A1A2E'">
+      </div>
+      <div class="popup-body">
+        <button class="popup-x">×</button>
+        <div class="popup-eyebrow">Exclusive Offer</div>
+        <h2 class="popup-title">Get 10% Off Your First Order</h2>
+        <p class="popup-text">Join 12,000+ workspace enthusiasts. Get early access to new products and exclusive member deals.</p>
+        <form class="popup-form">
+          <input class="popup-input" type="text" placeholder="Your first name" required>
+          <input class="popup-input" type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn btn-primary w-full">Claim My 10% Discount</button>
+        </form>
+        <div class="popup-skip">No thanks, I'll pay full price</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ HERO SECTION ═══════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <!-- Left: Content -->
+      <div class="hero-content">
+        <div class="hero-eyebrow">New 2025 Collection</div>
+        <h1 class="hero-title">
+          Your Desk,<br>
+          <span class="grad">Reimagined.</span>
+        </h1>
+        <p class="hero-sub">
+          Premium workspace accessories designed for focus, clarity, and aesthetic. Everything you need to build the desk setup you've always imagined.
+        </p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn btn-primary btn-lg">Shop Collection</a>
+          <a href="about.html" class="btn btn-ghost-white btn-lg">Our Story</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-val">12k+</div>
+            <div class="hero-stat-lbl">Happy Customers</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">4.9★</div>
+            <div class="hero-stat-lbl">Average Rating</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">5</div>
+            <div class="hero-stat-lbl">Core Products</div>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Image -->
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <div class="hero-img-main">
+            <img src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?auto=format&fit=crop&w=700&q=80" alt="Premium Desk Setup" onerror="this.src='https://placehold.co/700x420/1a1a2e/818cf8?text=DESKnet+Setup'">
+          </div>
+          <!-- Floating badges -->
+          <div class="hero-float hero-float-1">
+            <div class="float-icon"><i data-feather="star" aria-hidden="true"></i></div>
+            <div>
+              <div class="float-val">4.9 / 5.0</div>
+              <div class="float-lbl">12,400+ Reviews</div>
+            </div>
+          </div>
+          <div class="hero-float hero-float-2">
+            <div class="float-icon"><i data-feather="truck" aria-hidden="true"></i></div>
+            <div>
+              <div class="float-val">Free Shipping</div>
+              <div class="float-lbl">Orders over $75</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ MARQUEE / TRUST BAR ═══════════════ -->
+  <div class="marquee-sec">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="m-dot">✦</span> Free Shipping Over $75</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> 30-Day Easy Returns</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> 1-Year Warranty</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> Secure Checkout</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> Premium Materials</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> Designed for Creators</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> Fast Processing</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item"><span class="m-dot">✦</span> Free Shipping Over $75</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> 30-Day Easy Returns</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> 1-Year Warranty</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> Secure Checkout</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> Premium Materials</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> Designed for Creators</span>
+      <span class="marquee-item"><span class="m-dot">✦</span> Fast Processing</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FEATURED PRODUCTS ═══════════════ -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">New Arrivals</div>
+        <h2 class="section-title">Workspace Essentials</h2>
+        <p class="section-subtitle">Hand-picked products designed to elevate how you work, create, and focus every day.</p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card fade-up">
+          <div class="pc-img">
+            <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=500&q=80" alt="Adjustable Laptop Stand" onerror="this.src='https://placehold.co/500x500/f2f2f7/5254f7?text=Laptop+Stand'">
+            <div class="pc-badges"><span class="badge badge-new">New</span></div>
+            <div class="pc-hover-actions">
+              <a href="product.html" class="pc-action" title="Quick View"><i data-feather="eye" aria-hidden="true"></i></a>
+              <button class="pc-action" title="Wishlist"><i data-feather="heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="quick-add"
+              data-add-to-cart
+              data-name="Adjustable Laptop Stand"
+              data-price="79.99"
+              data-image="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=76&q=80">
+              + Add to Cart
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-cat">Laptop Accessories</div>
+            <a href="product.html"><div class="pc-name">Adjustable Laptop Stand</div></a>
+            <div class="pc-rating">
+              <div class="stars">★★★★★</div>
+              <span class="rating-n">(284)</span>
+            </div>
+            <div class="pc-price">
+              <span class="price-cur">$79.99</span>
+              <span class="price-was">$99.99</span>
+              <span class="price-save">Save 20%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card fade-up d1">
+          <div class="pc-img">
+            <img src="https://images.unsplash.com/photo-1587302912306-cf1ed9c33146?auto=format&fit=crop&w=500&q=80" alt="Minimal Desk Mat" onerror="this.src='https://placehold.co/500x500/f2f2f7/5254f7?text=Desk+Mat'">
+            <div class="pc-badges"><span class="badge badge-best">Best Seller</span></div>
+            <div class="pc-hover-actions">
+              <a href="product.html" class="pc-action" title="Quick View"><i data-feather="eye" aria-hidden="true"></i></a>
+              <button class="pc-action" title="Wishlist"><i data-feather="heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="quick-add"
+              data-add-to-cart
+              data-name="Minimal Desk Mat"
+              data-price="49.99"
+              data-image="https://images.unsplash.com/photo-1587302912306-cf1ed9c33146?auto=format&fit=crop&w=76&q=80">
+              + Add to Cart
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-cat">Desk Accessories</div>
+            <a href="product.html"><div class="pc-name">Minimal Desk Mat</div></a>
+            <div class="pc-rating">
+              <div class="stars">★★★★★</div>
+              <span class="rating-n">(512)</span>
+            </div>
+            <div class="pc-price">
+              <span class="price-cur">$49.99</span>
+              <span class="price-was">$64.99</span>
+              <span class="price-save">Save 23%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card fade-up d2">
+          <div class="pc-img">
+            <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=500&q=80" alt="RGB Desk Light Bar" onerror="this.src='https://placehold.co/500x500/f2f2f7/5254f7?text=Light+Bar'">
+            <div class="pc-badges"><span class="badge badge-hot">Hot</span></div>
+            <div class="pc-hover-actions">
+              <a href="product.html" class="pc-action" title="Quick View"><i data-feather="eye" aria-hidden="true"></i></a>
+              <button class="pc-action" title="Wishlist"><i data-feather="heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="quick-add"
+              data-add-to-cart
+              data-name="RGB Desk Light Bar"
+              data-price="89.99"
+              data-image="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=76&q=80">
+              + Add to Cart
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-cat">Lighting</div>
+            <a href="product.html"><div class="pc-name">RGB Desk Light Bar</div></a>
+            <div class="pc-rating">
+              <div class="stars">★★★★★</div>
+              <span class="rating-n">(189)</span>
+            </div>
+            <div class="pc-price">
+              <span class="price-cur">$89.99</span>
+              <span class="price-was">$119.99</span>
+              <span class="price-save">Save 25%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card fade-up d3">
+          <div class="pc-img">
+            <img src="https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?auto=format&fit=crop&w=500&q=80" alt="Wireless Charging Pad" onerror="this.src='https://placehold.co/500x500/f2f2f7/5254f7?text=Wireless+Charger'">
+            <div class="pc-badges"><span class="badge badge-new">New</span></div>
+            <div class="pc-hover-actions">
+              <a href="product.html" class="pc-action" title="Quick View"><i data-feather="eye" aria-hidden="true"></i></a>
+              <button class="pc-action" title="Wishlist"><i data-feather="heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="quick-add"
+              data-add-to-cart
+              data-name="Wireless Charging Pad"
+              data-price="59.99"
+              data-image="https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?auto=format&fit=crop&w=76&q=80">
+              + Add to Cart
+            </div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-cat">Charging</div>
+            <a href="product.html"><div class="pc-name">Wireless Charging Pad</div></a>
+            <div class="pc-rating">
+              <div class="stars">★★★★☆</div>
+              <span class="rating-n">(143)</span>
+            </div>
+            <div class="pc-price">
+              <span class="price-cur">$59.99</span>
+              <span class="price-was">$79.99</span>
+              <span class="price-save">Save 25%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:3rem">
+        <a href="shop.html" class="btn btn-secondary btn-lg">View All Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ WHY CHOOSE DESKNET ═══════════════ -->
+  <section class="section why-choose">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Why DESKnet</div>
+        <h2 class="section-title">Built for the Modern Worker</h2>
+        <p class="section-subtitle">Every product is designed with intention — to remove friction, reduce clutter, and help you do your best work.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card fade-up">
+          <div class="benefit-icon"><i data-feather="zap" aria-hidden="true"></i></div>
+          <div class="benefit-title">Boost Productivity</div>
+          <p class="benefit-text">An organized, intentional workspace leads to sharper focus and more meaningful output, every single day.</p>
+        </div>
+        <div class="benefit-card fade-up d1">
+          <div class="benefit-icon"><i data-feather="minimize-2" aria-hidden="true"></i></div>
+          <div class="benefit-title">Minimal by Design</div>
+          <p class="benefit-text">Every product follows strict aesthetic principles. Clean lines, neutral tones, and zero visual noise.</p>
+        </div>
+        <div class="benefit-card fade-up d2">
+          <div class="benefit-icon"><i data-feather="award" aria-hidden="true"></i></div>
+          <div class="benefit-title">Premium Quality</div>
+          <p class="benefit-text">Aerospace-grade aluminum, premium cork, aircraft cables. We use the best materials — no compromises.</p>
+        </div>
+        <div class="benefit-card fade-up d3">
+          <div class="benefit-icon"><i data-feather="shield" aria-hidden="true"></i></div>
+          <div class="benefit-title">Built to Last</div>
+          <p class="benefit-text">Every DESKnet product is backed by a 1-year warranty and 30-day no-questions-asked returns policy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BEST SELLERS ═══════════════ -->
+  <section class="section" style="background:var(--surface)">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Customer Favorites</div>
+        <h2 class="section-title">Best Sellers</h2>
+        <p class="section-subtitle">The products our customers can't stop recommending to their friends and colleagues.</p>
+      </div>
+      <div class="products-grid">
+        <!-- Best seller 1 -->
+        <div class="product-card fade-up">
+          <div class="pc-img">
+            <img src="https://images.unsplash.com/photo-1587302912306-cf1ed9c33146?auto=format&fit=crop&w=500&q=80" alt="Minimal Desk Mat" onerror="this.src='https://placehold.co/500x500/f2f2f7/5254f7?text=Desk+Mat'">
+            <div class="pc-badges"><span class="badge badge-best">Best Seller</span></div>
+            <div class="pc-hover-actions">
+              <a href="product.html" class="pc-action"><i data-feather="eye" aria-hidden="true"></i></a>
+              <button class="pc-action"><i data-feather="heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="quick-add" data-add-to-cart data-name="Minimal Desk Mat"data-price="49.99" data-image="https://images.unsplash.com/photo-1587302912306-cf1ed9c33146?w=76&q=80">+ Add to Cart</div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-cat">Desk Accessories</div>
+            <a href="product.html"><div class="pc-name">Minimal Desk Mat</div></a>
+            <div class="pc-rating"><div class="stars">★★★★★</div><span class="rating-n">(512)</span></div>
+            <div class="pc-price"><span class="price-cur">$49.99</span><span class="price-was">$64.99</span></div>
+          </div>
+        </div>
+        <!-- Best seller 2 -->
+        <div class="product-card fade-up d1">
+          <div class="pc-img">
+            <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=500&q=80" alt="Adjustable Laptop Stand" onerror="this.src='https://placehold.co/500x500/f2f2f7/5254f7?text=Laptop+Stand'">
+            <div class="pc-badges"><span class="badge badge-sale">Sale</span></div>
+            <div class="pc-hover-actions">
+              <a href="product.html" class="pc-action"><i data-feather="eye" aria-hidden="true"></i></a>
+              <button class="pc-action"><i data-feather="heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="quick-add" data-add-to-cart data-name="Adjustable Laptop Stand"data-price="79.99" data-image="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=76&q=80">+ Add to Cart</div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-cat">Laptop Accessories</div>
+            <a href="product.html"><div class="pc-name">Adjustable Laptop Stand</div></a>
+            <div class="pc-rating"><div class="stars">★★★★★</div><span class="rating-n">(284)</span></div>
+            <div class="pc-price"><span class="price-cur">$79.99</span><span class="price-was">$99.99</span><span class="price-save">-20%</span></div>
+          </div>
+        </div>
+        <!-- Best seller 3 -->
+        <div class="product-card fade-up d2">
+          <div class="pc-img">
+            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=500&q=80" alt="Cable Management Organizer" onerror="this.src='https://placehold.co/500x500/f2f2f7/5254f7?text=Cable+Organizer'">
+            <div class="pc-badges"><span class="badge badge-new">New</span></div>
+            <div class="pc-hover-actions">
+              <a href="product.html" class="pc-action"><i data-feather="eye" aria-hidden="true"></i></a>
+              <button class="pc-action"><i data-feather="heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="quick-add" data-add-to-cart data-name="Cable Management Organizer"data-price="34.99" data-image="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=76&q=80">+ Add to Cart</div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-cat">Cable Management</div>
+            <a href="product.html"><div class="pc-name">Cable Management Organizer</div></a>
+            <div class="pc-rating"><div class="stars">★★★★★</div><span class="rating-n">(376)</span></div>
+            <div class="pc-price"><span class="price-cur">$34.99</span></div>
+          </div>
+        </div>
+        <!-- Best seller 4 -->
+        <div class="product-card fade-up d3">
+          <div class="pc-img">
+            <img src="https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?auto=format&fit=crop&w=500&q=80" alt="Wireless Charging Pad" onerror="this.src='https://placehold.co/500x500/f2f2f7/5254f7?text=Wireless+Charger'">
+            <div class="pc-badges"><span class="badge badge-hot">Hot</span></div>
+            <div class="pc-hover-actions">
+              <a href="product.html" class="pc-action"><i data-feather="eye" aria-hidden="true"></i></a>
+              <button class="pc-action"><i data-feather="heart" aria-hidden="true"></i></button>
+            </div>
+            <div class="quick-add" data-add-to-cart data-name="Wireless Charging Pad"data-price="59.99" data-image="https://images.unsplash.com/photo-1591370874773-6702e8f12fd8?w=76&q=80">+ Add to Cart</div>
+          </div>
+          <div class="pc-info">
+            <div class="pc-cat">Charging</div>
+            <a href="product.html"><div class="pc-name">Wireless Charging Pad</div></a>
+            <div class="pc-rating"><div class="stars">★★★★☆</div><span class="rating-n">(143)</span></div>
+            <div class="pc-price"><span class="price-cur">$59.99</span><span class="price-was">$79.99</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ WORKSPACE TRANSFORMATION ═══════════════ -->
+  <section class="section workspace-sec">
+    <div class="container">
+      <div class="workspace-inner">
+        <div class="workspace-copy fade-up">
+          <div class="section-label">Transformation</div>
+          <h2>From Cluttered to<br>Completely Focused</h2>
+          <p style="margin-top:1rem">A great workspace isn't just about aesthetics — it's about removing everything that pulls you out of the zone. DESKnet products work together to create a system that supports deep work.</p>
+          <div class="workspace-feats">
+            <div class="wf-item">
+              <div class="wf-icon"><i data-feather="sliders" aria-hidden="true"></i></div>
+              <div>
+                <div class="wf-title">Ergonomic Positioning</div>
+                <p class="wf-text">Adjustable stands and risers bring your screen to eye level, reducing neck and back strain throughout the day.</p>
+              </div>
+            </div>
+            <div class="wf-item">
+              <div class="wf-icon"><i data-feather="layers" aria-hidden="true"></i></div>
+              <div>
+                <div class="wf-title">Zero Cable Chaos</div>
+                <p class="wf-text">Our cable management system eliminates visual clutter completely. One clean surface. Total clarity.</p>
+              </div>
+            </div>
+            <div class="wf-item">
+              <div class="wf-icon"><i data-feather="sun" aria-hidden="true"></i></div>
+              <div>
+                <div class="wf-title">Perfect Ambient Lighting</div>
+                <p class="wf-text">Tunable RGB lighting that matches your workflow — from focus-enhancing cool whites to warm evening tones.</p>
+              </div>
+            </div>
+          </div>
+          <a href="shop.html" class="btn btn-primary" style="margin-top:2rem">Build Your Setup →</a>
+        </div>
+        <div class="workspace-img fade-up d2">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=700&q=80" alt="Clean Desk Workspace" onerror="this.src='https://placehold.co/700x540/0c0c18/5254f7?text=Dream+Workspace'">
+          <div class="workspace-card">
+            <div class="wc-stat"><div class="wc-val">94%</div><div class="wc-lbl">Feel more productive</div></div>
+            <div class="wc-div"></div>
+            <div class="wc-stat"><div class="wc-val">2.3×</div><div class="wc-lbl">Increase in deep focus</div></div>
+            <div class="wc-div"></div>
+            <div class="wc-stat"><div class="wc-val">12k+</div><div class="wc-lbl">Setups transformed</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+  <section class="section" style="background:var(--surface)">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">Real Reviews</div>
+        <h2 class="section-title">Loved by Workspace Enthusiasts</h2>
+        <p class="section-subtitle">Over 12,000 customers have transformed their workspaces with DESKnet. Here's what they say.</p>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card fade-up">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars" style="color:#FBBF24;margin-bottom:.75rem">★★★★★</div>
+          <p class="testi-text">The laptop stand completely changed how I work.My neck pain is gone and the aluminum quality is genuinely premium. Worth every penny — I've already ordered one for a colleague.</p>
+          <div class="testi-author">
+            <div class="testi-av initials">AK</div>
+            <div>
+              <div class="testi-name">Alex Kim</div>
+              <div class="testi-role">Software Engineer at Stripe</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-up d1">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars" style="color:#FBBF24;margin-bottom:.75rem">★★★★★</div>
+          <p class="testi-text">I've bought desk mats from three other brandsand DESKnet's is on another level. The surface texture is perfect, base is non-slip, and it looks incredible on camera for calls.</p>
+          <div class="testi-author">
+            <div class="testi-av initials">SM</div>
+            <div>
+              <div class="testi-name">Sarah Mitchell</div>
+              <div class="testi-role">UX Designer & Content Creator</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-up d2">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars" style="color:#FBBF24;margin-bottom:.75rem">★★★★★</div>
+          <p class="testi-text">Finally got the cable organizer and desk light bar— my setup looks insane now. The RGB lighting app is surprisingly well-built. DESKnet just gets the aesthetic we're all chasing.</p>
+          <div class="testi-author">
+            <div class="testi-av initials">JP</div>
+            <div>
+              <div class="testi-name">James Park</div>
+              <div class="testi-role">Developer & Productivity Enthusiast</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-up">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars" style="color:#FBBF24;margin-bottom:.75rem">★★★★★</div>
+          <p class="testi-text">As a grad student I was hesitantabout the price but I'm so glad I invested. My study sessions are longer and more focused. The desk mat + light combo is chef's kiss.</p>
+          <div class="testi-author">
+            <div class="testi-av initials">RA</div>
+            <div>
+              <div class="testi-name">Riya Anand</div>
+              <div class="testi-role">Medical Student, Stanford</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-up d1">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars" style="color:#FBBF24;margin-bottom:.75rem">★★★★★</div>
+          <p class="testi-text">Shipping was fast, packaging was beautiful, and the wireless charger just works. No fuss. I love that they keep the design clean — no ugly logos plastered everywhere.</p>
+          <div class="testi-author">
+            <div class="testi-av initials">MC</div>
+            <div>
+              <div class="testi-name">Marcus Chen</div>
+              <div class="testi-role">Freelance Photographer</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-up d2">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars" style="color:#FBBF24;margin-bottom:.75rem">★★★★★</div>
+          <p class="testi-text">My remote team uses DESKnet productsacross the board now. It's become the standard setup recommendation we share in our onboarding. Quality is consistently exceptional.</p>
+          <div class="testi-author">
+            <div class="testi-av initials">LN</div>
+            <div>
+              <div class="testi-name">Laura Nguyen</div>
+              <div class="testi-role">Head of Engineering at Vercel</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TRUST SIGNALS ═══════════════ -->
+  <div class="trust-sec">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item fade-up">
+          <div class="trust-icon"><i data-feather="lock" aria-hidden="true"></i></div>
+          <div class="trust-title">Secure Checkout</div>
+          <p class="trust-text">256-bit SSL encryption on every transaction. Your data is always protected.</p>
+        </div>
+        <div class="trust-item fade-up d1">
+          <div class="trust-icon"><i data-feather="rotate-ccw" aria-hidden="true"></i></div>
+          <div class="trust-title">30-Day Returns</div>
+          <p class="trust-text">Changed your mind? Return any item within 30 days, no questions asked.</p>
+        </div>
+        <div class="trust-item fade-up d2">
+          <div class="trust-icon"><i data-feather="award" aria-hidden="true"></i></div>
+          <div class="trust-title">Quality Guarantee</div>
+          <p class="trust-text">Every product is backed by a 1-year warranty and our lifetime support promise.</p>
+        </div>
+        <div class="trust-item fade-up d3">
+          <div class="trust-icon"><i data-feather="truck" aria-hidden="true"></i></div>
+          <div class="trust-title">Fast Shipping</div>
+          <p class="trust-text">Same-day dispatch on orders before 2pm. Worldwide delivery in 3–7 days.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ NEWSLETTER ═══════════════ -->
+  <section class="newsletter">
+    <div class="nl-inner fade-up">
+      <div class="section-label" style="color:#a5b4fc">Join the Community</div>
+      <h2 class="nl-title">Get 10% Off Your First Order</h2>
+      <p class="nl-sub">Join 12,000+ workspace enthusiasts. Be the first to hear about new products, setup tips, and exclusive member deals.</p>
+      <form class="nl-form">
+        <input class="nl-input" type="email" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="nl-disc">No spam. Unsubscribe anytime. We respect your privacy.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════ INSTAGRAM / SOCIAL GALLERY ═══════════════ -->
+  <section class="section gallery-sec">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-label">@desknet</div>
+        <h2 class="section-title">Real Setups, Real People</h2>
+        <p class="section-subtitle">Tag us <strong>@desknet</strong> on Instagram to be featured. Our community builds the most incredible workspaces.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1593642634524-b40b5baae6bb?auto=format&fit=crop&w=300&q=80" alt="Desk Setup 1" onerror="this.src='https://placehold.co/300x300/eeeeff/5254f7?text=Setup'"><div class="gallery-item-overlay">📷</div></div>
+        <div class="gallery-item fade-up d1"><img src="https://images.unsplash.com/photo-1603899122634-f086ca5f5ddd?auto=format&fit=crop&w=300&q=80" alt="Desk Setup 2" onerror="this.src='https://placehold.co/300x300/eeeeff/5254f7?text=Setup'"><div class="gallery-item-overlay">📷</div></div>
+        <div class="gallery-item fade-up d2"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=300&q=80" alt="Desk Setup 3" onerror="this.src='https://placehold.co/300x300/eeeeff/5254f7?text=Setup'"><div class="gallery-item-overlay">📷</div></div>
+        <div class="gallery-item fade-up d3"><img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=300&q=80" alt="Desk Setup 4" onerror="this.src='https://placehold.co/300x300/eeeeff/5254f7?text=Setup'"><div class="gallery-item-overlay">📷</div></div>
+        <div class="gallery-item fade-up d4"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=300&q=80" alt="Desk Setup 5" onerror="this.src='https://placehold.co/300x300/eeeeff/5254f7?text=Setup'"><div class="gallery-item-overlay">📷</div></div>
+        <div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=300&q=80" alt="Desk Setup 6" onerror="this.src='https://placehold.co/300x300/eeeeff/5254f7?text=Setup'"><div class="gallery-item-overlay">📷</div></div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <a href="https://instagram.com/desknet" class="btn btn-secondary" target="_blank">Follow @desknet on Instagram →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-mark"><img src="desknet logo.png" alt="DESKnet" /></div><span class="logo-text">DESKnet</span>
+        </a>
+        <p>Premium minimal desk accessories designed to transform your workspace. Built for students, developers, creators, and remote workers.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" title="Instagram" aria-label="Instagram">𝕀</a>
+          <a href="#" class="social-btn" title="Twitter/X" aria-label="Twitter">𝕏</a>
+          <a href="#" class="social-btn" title="YouTube" aria-label="YouTube">▶</a>
+          <a href="#" class="social-btn" title="Pinterest" aria-label="Pinterest">𝙋</a>
+          <a href="#" class="social-btn" title="TikTok" aria-label="TikTok">♪</a>
+        </div>
+      </div>
+      <!-- Shop -->
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="shop.html#laptop-stands">Laptop Stands</a></li>
+          <li><a href="shop.html#desk-mats">Desk Mats</a></li>
+          <li><a href="shop.html#cable-mgmt">Cable Management</a></li>
+          <li><a href="shop.html#lighting">Lighting</a></li>
+          <li><a href="shop.html#charging">Charging</a></li>
+        </ul>
+      </div>
+      <!-- Help -->
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="shipping.html">Shipping & Returns</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About DESKnet</a></li>
+          <li><a href="cart.html">View Cart</a></li>
+        </ul>
+      </div>
+      <!-- Legal -->
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="refund.html">Refund Policy</a></li>
+          <li><a href="shipping.html">Shipping Policy</a></li>
+        </ul>
+        <div style="margin-top:1.5rem">
+          <h4>Contact</h4>
+          <p style="font-size:.875rem;color:rgba(255,255,255,.5);margin-top:.75rem">hello@desknet.co<br>Mon–Fri, 9am–6pm EST</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 DESKnet. All rights reserved. Designed for dreamers.</span>
+      <div class="footer-pay">
+        <span class="pay-icon">VISA</span>
+        <span class="pay-icon">MC</span>
+        <span class="pay-icon">AMEX</span>
+        <span class="pay-icon">PAYPAL</span>
+        <span class="pay-icon">APPLE</span>
+        <span class="pay-icon">GOOGLE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>

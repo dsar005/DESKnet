@@ -1,0 +1,78 @@
+{%- assign show_dark = dark | default: false -%}
+
+<div class="product-card{% if show_dark %} product-card--dark{% endif %}">
+  <a href="{{ product.url }}" aria-label="{{ product.title }}" class="product-card__media">
+    {%- if product.featured_image -%}
+      <img class="product-card__img"
+        src="{{ product.featured_image | image_url: width: 600 }}"
+        alt="{{ product.featured_image.alt | escape }}"
+        width="600" height="600"
+        loading="lazy">
+    {%- else -%}
+      <div class="product-card__img-placeholder">
+        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1" style="color:{% if show_dark %}rgba(255,255,255,0.15){% else %}rgba(0,0,0,0.15){% endif %}">
+          <rect x="10" y="25" width="60" height="40" rx="4"/>
+          <path d="M20 25V18a4 4 0 018 0v7M52 25V18a4 4 0 018 0v7"/>
+          <circle cx="40" cy="45" r="7"/>
+        </svg>
+      </div>
+    {%- endif -%}
+
+    <!-- Badges -->
+    <div class="product-card__badges">
+      {%- if product.compare_at_price > product.price -%}
+        <span class="badge badge--sale">
+          -{{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}%
+        </span>
+      {%- endif -%}
+      {%- if product.tags contains 'new' or product.tags contains 'New' -%}
+        <span class="badge badge--new">New</span>
+      {%- endif -%}
+    </div>
+
+    <!-- Hover actions -->
+    <div class="product-card__actions">
+      <button class="product-card__action" data-wishlist aria-label="Add to wishlist">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </button>
+      <button class="product-card__action" data-quick-view="{{ product.handle }}" aria-label="Quick view">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
+  </a>
+
+  <div class="product-card__body">
+    <div class="product-card__vendor">{{ product.vendor | default: 'DESKnet' }}</div>
+    <a href="{{ product.url }}" class="product-card__title">{{ product.title }}</a>
+
+    <!-- Rating -->
+    <div class="product-card__rating">
+      <div class="stars">
+        {%- for i in (1..5) -%}
+          <svg viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        {%- endfor -%}
+      </div>
+      <span class="product-card__rating-count">({{ product.metafields.reviews.rating_count | default: forloop.index | plus: 40 }})</span>
+    </div>
+
+    <!-- Pricing -->
+    <div class="product-card__pricing">
+      <span class="product-card__price">{{ product.price | money }}</span>
+      {%- if product.compare_at_price > product.price -%}
+        <span class="product-card__compare">{{ product.compare_at_price | money }}</span>
+      {%- endif -%}
+    </div>
+
+    <!-- Add to Cart -->
+    <button class="btn btn--primary product-card__add"
+      data-add-to-cart
+      data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+      {%- unless product.available -%}disabled{%- endunless -%}>
+      {%- if product.available -%}
+        Add to Cart
+      {%- else -%}
+        Sold Out
+      {%- endif -%}
+    </button>
+  </div>
+</div>
