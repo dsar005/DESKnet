@@ -114,6 +114,7 @@
       closeMobileMenu();
       closeCart();
       closePopup();
+      closeSidebar();
     }
   });
 
@@ -435,12 +436,122 @@
     });
   });
 
+  /* ---- Shop Sidebar Toggle (mobile) ---- */
+  const filterToggleBtn = document.getElementById('filterToggle');
+  const shopSidebar     = document.getElementById('shopSidebar');
+  const sidebarCloseBtn = document.getElementById('sidebarClose');
+  const sidebarOverlay  = document.getElementById('sidebarOverlay');
+
+  function openSidebar() {
+    shopSidebar    && shopSidebar.classList.add('open');
+    sidebarOverlay && sidebarOverlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSidebar() {
+    shopSidebar    && shopSidebar.classList.remove('open');
+    sidebarOverlay && sidebarOverlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  filterToggleBtn && filterToggleBtn.addEventListener('click', openSidebar);
+  sidebarCloseBtn && sidebarCloseBtn.addEventListener('click', closeSidebar);
+  sidebarOverlay  && sidebarOverlay.addEventListener('click', closeSidebar);
+
+  /* ---- Shop Filters ---- */
+  (function() {
+    const grid = document.querySelector('.shop-products-grid');
+    if (!grid) return;
+
+    function applyShopFilters() {
+      const cards    = grid.querySelectorAll('.product-card');
+      const catOpts  = document.getElementById('filter-cats');
+      const matOpts  = document.getElementById('filter-mats');
+      const colOpts  = document.getElementById('filter-rats') && document.getElementById('filter-cols');
+      const ratOpts  = document.getElementById('filter-rats');
+      const colorOpts= document.getElementById('filter-cols');
+      const priceRng = document.querySelector('.price-range');
+      const countEl  = document.querySelector('.shop-count strong');
+
+      const maxPrice = priceRng ? parseFloat(priceRng.value) : 200;
+
+      function checkedVals(container) {
+        if (!container) return [];
+        return Array.from(container.querySelectorAll('input:checked')).map(i => i.value);
+      }
+
+      const catVals = checkedVals(catOpts);
+      const allCat  = catVals.includes('all') || catVals.length === 0;
+      const cats    = allCat ? [] : catVals;
+      const mats    = checkedVals(matOpts);
+      const cols    = checkedVals(colorOpts);
+      const rats    = checkedVals(ratOpts);
+
+      let visible = 0;
+      cards.forEach(card => {
+        const show =
+          (cats.length === 0 || cats.includes(card.dataset.category)) &&
+          (parseFloat(card.dataset.price || 0) <= maxPrice) &&
+          (mats.length === 0 || mats.includes(card.dataset.material)) &&
+          (cols.length === 0 || cols.includes(card.dataset.color)) &&
+          (rats.length === 0 || rats.some(r => (parseInt(card.dataset.rating) || 0) >= parseInt(r)));
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      if (countEl) countEl.textContent = visible;
+    }
+
+    window._shopApplyFilters = applyShopFilters;
+
+    // Category "All Products" mutual exclusivity
+    const catOpts = document.getElementById('filter-cats');
+    if (catOpts) {
+      const allCb = catOpts.querySelector('input[value="all"]');
+      catOpts.querySelectorAll('input').forEach(cb => {
+        cb.addEventListener('change', () => {
+          if (cb.value === 'all' && cb.checked) {
+            catOpts.querySelectorAll('input').forEach(o => { if (o !== cb) o.checked = false; });
+          } else if (cb.value !== 'all' && cb.checked && allCb) {
+            allCb.checked = false;
+          }
+          applyShopFilters();
+        });
+      });
+    }
+
+    // Material / Color / Rating
+    ['filter-mats', 'filter-cols', 'filter-rats'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.querySelectorAll('input').forEach(cb => cb.addEventListener('change', applyShopFilters));
+    });
+
+    // Sort
+    const sortSel = document.querySelector('.sort-select');
+    if (sortSel) {
+      sortSel.addEventListener('change', () => {
+        const all = Array.from(grid.querySelectorAll('.product-card'));
+        const val = sortSel.value;
+        all.sort((a, b) => {
+          const pa = parseFloat(a.dataset.price) || 0, pb = parseFloat(b.dataset.price) || 0;
+          const ra = parseInt(a.dataset.rating)  || 0, rb = parseInt(b.dataset.rating)  || 0;
+          if (val === 'Price: Low to High')  return pa - pb;
+          if (val === 'Price: High to Low') return pb - pa;
+          if (val === 'Highest Rated')      return rb - ra;
+          return 0;
+        });
+        all.forEach(c => grid.appendChild(c));
+      });
+    }
+
+    applyShopFilters();
+  })();
+
   /* ---- Price Range Filter ---- */
   const priceRange = document.querySelector('.price-range');
   const priceMax   = document.querySelector('.price-max');
   if (priceRange && priceMax) {
     priceRange.addEventListener('input', () => {
       priceMax.textContent = '$' + priceRange.value;
+      window._shopApplyFilters && window._shopApplyFilters();
     });
   }
 
@@ -458,10 +569,12 @@
   }
 
   /* ---- View Toggle (shop grid/list) ---- */
+  const shopProductsGrid = document.querySelector('.shop-products-grid');
   document.querySelectorAll('.vbtn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.vbtn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      if (shopProductsGrid) shopProductsGrid.classList.toggle('list-view', btn.title === 'List view');
     });
   });
 
